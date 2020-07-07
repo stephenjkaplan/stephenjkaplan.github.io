@@ -27,11 +27,12 @@ it doesnt tell the full story of how I got to where I am now. I'll pose a few qu
 I rode my first roller coaster ("Great Bear", pictured below) on a middle school band trip to 
 [Hershey Park](https://www.hersheypark.com/) in Pennsylvania. After obsessively surfing the web to learn about every 
 roller coaster on Earth, I eventually figured out that you have to study engineering to build roller coasters. 
-
+<br><br>
 
 ![Great Bear](images/great_bear.jpg)
 
 <small>Great Bear, a roller coaster at Hershey Park in Pennsylvania.</small>
+
 
 After a few years of subconsciously orienting myself towards an engineering career by centering my focus on 
 [STEM](https://en.wikipedia.org/wiki/Science,_technology,_engineering,_and_mathematics) classes in middle/high school, 
@@ -41,12 +42,13 @@ discusses the risks of climate change and goes through every viable fossil fuel 
 advantages and disadvantages of all possible renewable energy technologies, but his overall thesis is that a mix of 
 all carbon-free energy sources is necessary to move away from fossil fuels, including Nuclear Power (which I mention for 
 the purpose of foreshadowing.)
+<br><br>
 
 ![Sanmen Nuclear Plant](images/sanmen_nuclear_plant.jpg)
 
 <small>
 Units 1 & 2 at Sanmen Nuclear Power Plant in China. The reactors are Westinghouse AP1000, which use modern passive safety systems. (Credit: <a href='https://www.world-nuclear-news.org/NN-First-AP1000-unit-begins-generating-power-0207184.html'>World Nuclear News</a>)
-</small><br><br>
+</small>
 
 This book had a huge impact on me and eventually led me to choose my major at UC Berkeley, Civil & Environmental 
 Engineering. I soon realized that I had conflated "Environmental" with "Renewable Energy", and made the first major 
@@ -102,7 +104,7 @@ office.
 
 <small>
 First Solar's unique thin-film Cadmium Telluride modules. (Credit: <a href='https://www.solarpowerworldonline.com/2020/05/geronimo-energy-buys-415-mw-of-first-solar-series-6-modules-for-2022-projects/'>Solar Power World</a>)
-</small><br><br>
+</small>
 
 quick recap of what i did there
 
