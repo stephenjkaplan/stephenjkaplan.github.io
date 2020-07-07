@@ -11,4 +11,4 @@ Stephen Kaplan is currently a Data Science Student at [Metis](https://www.thisis
 
 
 [![Github](images/github_logo.png)](https://github.com/stephenjkaplan) 
-&nbsp; &nbsp; &nbsp; [![Github](images/linkedin_logo.png)](https://www.linkedin.com/in/kaplanstephen/)
+[![Github](images/linkedin_logo.png)](https://www.linkedin.com/in/kaplanstephen/)
