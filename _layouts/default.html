@@ -6,16 +6,17 @@
   <body>
 
     <div class="container content">
+      {% for page in site.pages_list %}&nbsp;&nbsp;&nbsp;
+      <a href="{{ page[1]  }}">{{ page[0] }}</a>
+      {% endfor %}
       <header class="masthead">
-        {% for page in site.pages_list %}&nbsp;&nbsp;&nbsp;
-          <a href="{{ page[1]  }}">{{ page[0] }}</a>
-        {% endfor %}
-        <br>
         <h3 class="masthead-title">
           <a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a><br>
           <small>{{ site.tagline }}</small><br>
         </h3>
       </header>
+
+      <img src="images/romanesco.jpeg" />
 
       <main>
       {{ content }}
