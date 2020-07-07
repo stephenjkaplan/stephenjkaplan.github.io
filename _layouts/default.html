@@ -9,13 +9,13 @@
 
       <header class="masthead">
         {% for page in site.pages_list %}
-        <small><a href="{{ page[1]  }}">{{page[0] }}</a></small>
+        <div class="navigation"><a href="{{ page[1]  }}">{{page[0]    }}</a></div>
         {% endfor %}
         <h3 class="masthead-title">
           <a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a><br>
           <small>{{ site.tagline }}</small><br>
         </h3>
-        <img src="images/romanesco.jpeg" style="padding-top: 10px"/>
+        <img src="images/romanesco_broc.jpeg" style="padding-top: 15px"/>
       </header>
 
       <main>
