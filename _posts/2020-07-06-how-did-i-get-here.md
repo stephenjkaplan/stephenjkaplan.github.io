@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How Did I Get Here: A Casual Cover Letter for Self-Reflection
+title: How Did I Get Here (A Casual Cover Letter for Self-Reflection)
 ---
 
 How did I get here? In other words, how did I arrive at this moment in time where I am writing my first blog post in a 
