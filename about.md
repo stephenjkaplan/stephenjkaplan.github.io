@@ -4,7 +4,7 @@ title: About
 ---
 
 
-![Stephen Photo](images/stephen_photo.jpg)
+![Stephen Photo](images/headshot.jpg)
 
 
 Stephen Kaplan is currently a Data Science Student at [Metis](https://www.thisismetis.com/).
