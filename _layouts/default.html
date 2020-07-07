@@ -7,13 +7,12 @@
 
     <div class="container content">
       <header class="masthead">
+        {% for page in site.pages_list %}&nbsp;&nbsp;&nbsp;
+          <small><a href="{{ page[1]  }}">{{ page[0] }}</a></small>
+        {% endfor %}
         <h3 class="masthead-title">
           <a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a><br>
-          <h4>{{ site.tagline }}</h4><br>
-          {% for page in site.pages_list %}
-          &nbsp;&nbsp;&nbsp;
-          <small><a href="{{page[1]  }}">{{ page[0] }}</a></small>
-          {% endfor %}
+          <small>{{ site.tagline }}</small><br>
         </h3>
       </header>
 
