@@ -4,11 +4,11 @@ title: How I Got Here (A Casual Cover Letter)
 ---
 
 How did I get here? In other words, how did I arrive at this moment in time where I am writing my first blog post in a 
-personal data science blog? Why am I currently a Data Science student at [Metis](https://www.thisismetis.com/)? 
+personal data science blog? Why am I currently a Data Science student at [Metis](https://www.thisismetis.com/){:target="_blank"}? 
 Reflecting on my "journey" (for lack of a less self-indulgent term) so far has helped me align my next set of career 
 goals. 
 
-I'll spare you [my resumé](https://www.linkedin.com/in/kaplanstephen/) in its entirety, but here's a recap for context:
+I'll spare you [my resumé](https://www.linkedin.com/in/kaplanstephen/){:target="_blank"} in its entirety, but here's a recap for context:
 
 - Graduated from the University of California - Berkeley in 2014 with a B.S. in Mechanical & Nuclear Engineering
 - Got a job as a "Mechanical Engineer" (effectively an onboarding engineer) at a small startup in the Bay Area. 
@@ -16,7 +16,7 @@ I'll spare you [my resumé](https://www.linkedin.com/in/kaplanstephen/) in its e
 - Short stint at an even smaller incubator stage startup as a Software Engineer.
 - 4-years at a large utility-scale solar energy company doing a variety of things including ad-hoc analytics,
   researching and validating physical models for solar power plant performance, to tool development in Python.
-- [Metis](https://www.thisismetis.com/) Data Science Bootcamp (current).
+- [Metis](https://www.thisismetis.com/){:target="_blank"} Data Science Bootcamp (current).
 
 Looking at the bulleted list in a vacuum at best implies a vague theme throughout my career (Python...?). However, 
 it doesnt tell the full story of how I got to where I am now. I'll pose a few questions and answer them.
@@ -25,7 +25,7 @@ it doesnt tell the full story of how I got to where I am now. I'll pose a few qu
 #### Why did I study Mechanical & Nuclear Engineering?
 
 I rode my first roller coaster ("Great Bear", pictured below) on a middle school band trip to 
-[Hershey Park](https://www.hersheypark.com/) in Pennsylvania. After obsessively surfing the web to learn about every 
+[Hershey Park](https://www.hersheypark.com/){:target="_blank"} in Pennsylvania. After obsessively surfing the web to learn about every 
 roller coaster on Earth, I eventually figured out that you have to study engineering to build roller coasters. 
 <br><br>
 
@@ -35,9 +35,9 @@ roller coaster on Earth, I eventually figured out that you have to study enginee
 
 
 After a few years of subconsciously orienting myself towards an engineering career by centering my focus on 
-[STEM](https://en.wikipedia.org/wiki/Science,_technology,_engineering,_and_mathematics) classes in middle/high school, 
+[STEM](https://en.wikipedia.org/wiki/Science,_technology,_engineering,_and_mathematics){:target="_blank"} classes in middle/high school, 
 I happened upon a book that changed my path. The book by Joseph M. Shuster, entitled 
-["Beyond Fossil Fools: The Roadmap to Energy Independence by 2040"](https://www.amazon.com/Beyond-Fossil-Fools-Roadmap-Independence/dp/1592982352), 
+["Beyond Fossil Fools: The Roadmap to Energy Independence by 2040"](https://www.amazon.com/Beyond-Fossil-Fools-Roadmap-Independence/dp/1592982352){:target="_blank"}, 
 discusses the risks of climate change and goes through every viable fossil fuel replacement. The author explains the 
 advantages and disadvantages of all possible renewable energy technologies, but his overall thesis is that a mix of 
 all carbon-free energy sources is necessary to move away from fossil fuels, including Nuclear Power (which I mention for 
@@ -81,7 +81,7 @@ I was a scrappy, but functional Python/Django/AngularJS developer.
 
 What followed isn't something I necessarily regret (because I am happy where I ended up)...okay, let's just call it a 
 challenging learning experience. I applied to an even smaller startup in the Bay, mostly motivated by a higher salary 
-listed on [AngelList](https://angel.co/).
+listed on [AngelList](https://angel.co/){:target="_blank"}.
 
 I got the job but was let go within 6 months of working there. In a nutshell, the management style wasn't working for me,
 being 1 of 2 engineers wasn't working for me. It was a soul crushing moment so early in my career. Why had I strayed 
@@ -109,21 +109,21 @@ First Solar's unique thin-film Cadmium Telluride modules. (Credit: <a href='http
 The four years that followed were _truly excellent_. The work ranged from data analysis of power plant data, researching 
 ways to improve our physical models that predicted power plant performance, creating technical sales collateral, 
 serving as the internal "consultants" for every team, presenting my work at conferences in the US, China, and Germany, 
-developing [an SDK for our energy prediction software](https://github.com/stephenjkaplan/plantpredict-python), and an 
+developing [an SDK for our energy prediction software](https://github.com/stephenjkaplan/plantpredict-python){:target="_blank"}, and an 
 endless list of other rewarding projects.
 
 Sometime a couple of years ago, my manager asked me if I wanted the company to sponsor any educational opportunities. 
 I had been curious about machine learning, so I began to peruse some of the online offerings. I ended up 
 recommending he well-known 
-[Andrew Ng Machine Learning course on Coursera](https://www.coursera.org/learn/machine-learning), as I saw it mentioned
+[Andrew Ng Machine Learning course on Coursera](https://www.coursera.org/learn/machine-learning){:target="_blank"}, as I saw it mentioned
 a number of times on different forums. My entire team expressed interest and we started the course shortly thereafter. 
 I found myself extremely stimulated by the course, which was mostly theoretical, and similar to my fixation on roller 
 coasters and renewable energy as a kid, I always came back to the thought that "I might like to do that one day".
 
 Meanwhile, while I was doing extremely well at First Solar, much in part to my previous experience as a software 
 engineer, I felt myself falling into the role of "Python educator". Much of my time was spent helping people 
-create [Anaconda](https://www.anaconda.com/products/individual) environments, or understand 
-[class inheritance](https://docs.python.org/3/tutorial/classes.html). This felt good in some ways - it continued 
+create [Anaconda](https://www.anaconda.com/products/individual){:target="_blank"} environments, or understand 
+[class inheritance](https://docs.python.org/3/tutorial/classes.html){:target="_blank"}. This felt good in some ways - it continued 
 to build my confidence in my software skills, a process that began after I lost my previous job 4 years prior. However, 
 I felt unsatisfied. I realized that **I don't want to be the person answering all of the questions. I want to be 
 the one asking the questions, growing, learning, and being challenged.** I didn't have any major gripes with my company, 
@@ -151,7 +151,7 @@ bootcamp called Metis and strongly recommended it to me.
 A week later, I was on a business trip for First Solar. As I sat on the bed in my hotel room after a day of meeting, 
 I took a look at Metis' academic calendar, just for the hell of it. I took a look at my Google calendar. I thought 
 to myself, if I resign in the next month or so, and take a 2 month break to unwind and work on 
-[my music](https://open.spotify.com/artist/5qdyMjUQjxhdWtKjHvh3cm?si=GhAcmWQyQSKaaAaJlZwJqg) (something I had been 
+[my music](https://open.spotify.com/artist/5qdyMjUQjxhdWtKjHvh3cm?si=GhAcmWQyQSKaaAaJlZwJqg){:target="_blank"} (something I had been 
 fantasizing about for years), I could start Metis in the summer. That's when I made my decision to apply to Metis. 
 And that's how I got here.
 
