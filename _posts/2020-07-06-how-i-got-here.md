@@ -15,7 +15,7 @@ I'll spare you [my resumé](https://www.linkedin.com/in/kaplanstephen/){:target=
   Transitioned into a mostly [Django](https://www.djangoproject.com/){:target="_blank"}-based Software Engineering role. 
 - Short stint at an even smaller incubator stage startup as a Software Engineer.
 - 4-years at a large utility-scale solar energy company doing a variety of things including ad-hoc analytics,
-  researching and validating physical models for solar power plant performance, to tool development in Python.
+  researching and validating physical models for solar power plant performance, and tool development in Python.
 - [Metis](https://www.thisismetis.com/){:target="_blank"} Data Science Bootcamp (current).
 
 Looking at the bulleted list in a vacuum at best implies a vague theme throughout my career (Python...?). However, 
@@ -50,10 +50,10 @@ the purpose of foreshadowing.)
 Units 1 & 2 at Sanmen Nuclear Power Plant in China. The reactors are Westinghouse AP1000, which use modern passive safety systems. (Credit: <a href='https://www.world-nuclear-news.org/NN-First-AP1000-unit-begins-generating-power-0207184.html'>World Nuclear News</a>)
 </small>
 
-This book had a huge impact on me and eventually led me to choose my major at UC Berkeley, Civil & Environmental 
-Engineering. I soon realized that I had conflated "Environmental" with "Renewable Energy", and made the first major 
+This book had a huge impact on me and eventually led me to choose Civil & Environmental 
+Engineering as my major. I soon realized that I had conflated "Environmental" with "Renewable Energy", and made the first major 
 course correction in my career by switching to Mechanical Engineering, which I believed would give me a broad 
-understanding of designing things, and maybe put me in a position to work for an electric car company. Soon after, I 
+understanding of design, and maybe put me in a position to work for an electric car company. Soon after, I 
 tacked on Nuclear Engineering to my major, keeping the dream alive of maybe landing a job at a firm designing 
 next-generation nuclear reactors.
 
@@ -63,7 +63,7 @@ As I approached graduation, I was still optimistic about becoming a nuclear engi
 two major obstacles:
 
 1. Nuclear Power isn't very popular in the US, and there are a limited set of entry level roles.
-2. I wanted to stay in the Bay Area after college, and the handful of nuclear power companies are located elsewhere.
+2. I wanted to stay in the Bay Area after college, and the handful of nuclear power companies seemed to be elsewhere.
 
 ![Silicon Valley](images/silicon_valley.jpeg)
 
@@ -71,7 +71,7 @@ two major obstacles:
 
 
 Luckily, I found a role at a startup in Berkeley working on software that improved energy efficiency of commercial 
-builds via optimization of HVAC systems. The role I applied for, "Mechanical Engineer", turned out to be more of a 
+buildings via optimization of HVAC systems. The role I applied for, "Mechanical Engineer", turned out to be more of a 
 Sales Engineer/Onboarding Engineer role. Due to the volatile nature of startups, my role was quickly becoming obsolete, 
 but I was given the opportunity (which I am eternally thankful for) to learn web development on the job. Within a year 
 I was a scrappy, but functional Python/Django/AngularJS developer.
@@ -83,8 +83,8 @@ What followed isn't something I necessarily regret (because I am happy where I e
 challenging learning experience. I applied to an even smaller startup in the Bay, mostly motivated by a higher salary 
 listed on [AngelList](https://angel.co/){:target="_blank"}.
 
-I got the job but was let go within 6 months of working there. In a nutshell, the management style wasn't working for me,
-being 1 of 2 engineers wasn't working for me. It was a soul crushing moment so early in my career. Why had I strayed 
+I got the job but was let go within 6 months of working there. The management style wasn't working for me,
+being 1 of 2 engineers wasn't working for me, and I suppose it wasn't working for them either. It was a soul crushing moment so early in my career. Why had I strayed 
 so far from my major? Why was I pretending to be a software engineer? 
 
 It's impossible to predict the outcome of every decision in life, but here's my advice to those in the infancy of 
@@ -106,25 +106,25 @@ office.
 First Solar's unique thin-film Cadmium Telluride modules. (Credit: <a href='https://www.solarpowerworldonline.com/2020/05/geronimo-energy-buys-415-mw-of-first-solar-series-6-modules-for-2022-projects/'>Solar Power World</a>)
 </small>
 
-The four years that followed were _truly excellent_. The work ranged from data analysis of power plant data, researching 
+The four years that followed were _truly excellent_. The work ranged from analysis of power plant performance data, researching 
 ways to improve our physical models that predicted power plant performance, creating technical sales collateral, 
-serving as the internal "consultants" for every team, presenting my work at conferences in the US, China, and Germany, 
+serving as the internal "consultants", presenting my work at conferences in the US, China, and Germany, 
 developing [an SDK for our energy prediction software](https://github.com/stephenjkaplan/plantpredict-python){:target="_blank"}, and an 
 endless list of other rewarding projects.
 
-Sometime a couple of years ago, my manager asked me if I wanted the company to sponsor any educational opportunities. 
+A couple of years ago, my manager asked me if I wanted the company to sponsor any educational opportunities. 
 I had been curious about machine learning, so I began to peruse some of the online offerings. I ended up 
-recommending he well-known 
+recommending the well-known 
 [Andrew Ng Machine Learning course on Coursera](https://www.coursera.org/learn/machine-learning){:target="_blank"}, as I saw it mentioned
 a number of times on different forums. My entire team expressed interest and we started the course shortly thereafter. 
-I found myself extremely stimulated by the course, which was mostly theoretical, and similar to my fixation on roller 
-coasters and renewable energy as a kid, I always came back to the thought that "I might like to do that one day".
+I found myself extremely stimulated by the course and became fixated on machine learning, just like I had for roller coasters 
+as a child, and renewable energy as a teen.
 
-Meanwhile, while I was doing extremely well at First Solar, much in part to my previous experience as a software 
+Meanwhile, though I was doing extremely well at First Solar, much in part to my previous experience as a software 
 engineer, I felt myself falling into the role of "Python educator". Much of my time was spent helping people 
 create [Anaconda](https://www.anaconda.com/products/individual){:target="_blank"} environments, or understand 
 [class inheritance](https://docs.python.org/3/tutorial/classes.html){:target="_blank"}. This felt good in some ways - it continued 
-to build my confidence in my software skills, a process that began after I lost my previous job 4 years prior. However, 
+to build my confidence in my software skills, something I had been struggling with after I lost my previous job 4 years prior. However, 
 I felt unsatisfied. I realized that **I don't want to be the person answering all of the questions. I want to be 
 the one asking the questions, growing, learning, and being challenged.** I didn't have any major gripes with my company, 
 but I was ready for the next stage of growth in my career. Plus, there was that whole machine learning 
@@ -133,7 +133,7 @@ thing...
 
 #### Why did I apply to Metis?
 
-Eventually, I applied to a few Data Scienctist positions in Denver. (I had since moved there and was working 
+Eventually, I applied to a few Data Scientist positions in Denver. (I had since moved there and was working 
 remotely for First Solar.) I wasn't necessarily expecting to get an offer, but I knew I could at least get an interview 
 or two, and I was curious to see where I stood. 
 
@@ -143,27 +143,27 @@ or two, and I was curious to see where I stood.
 
 I was able to get my foot in the door at one company in particular, and made it past the initial screening to the 
 take-home assessment. The take home assessment involved some exploratory data analysis and a machine learning challenge.
-My analytics and software experience was only able to get me so far, and I was rejected. However, something unlikely 
+My data analytics/software engineering experience was only able to get me so far, and I was rejected. However, something unlikely 
 happened: the company's Director of Data Science emailed back and forth with me, and his messages 
 were extremely supportive, encouraging me to continue this pursuit. He told me that he had graduated from a data science 
 bootcamp called Metis and strongly recommended it to me.
 
-A week later, I was on a business trip for First Solar. As I sat on the bed in my hotel room after a day of meeting, 
-I took a look at Metis' academic calendar, just for the hell of it. I took a look at my Google calendar. I thought 
+A week later, I was on a business trip for First Solar. As I sat on the bed in my hotel room after a day of meetings, 
+I took a look at Metis' academic calendar, just for the hell of it. I then took a look at my Google calendar and something clicked. I thought 
 to myself, if I resign in the next month or so, and take a 2 month break to unwind and work on 
-[my music](https://open.spotify.com/artist/5qdyMjUQjxhdWtKjHvh3cm?si=GhAcmWQyQSKaaAaJlZwJqg){:target="_blank"} (something I had been 
+[my music](https://soundcloud.com/kaptainmusic){:target="_blank"} (something I had been 
 fantasizing about for years), I could start Metis in the summer. That's when I made my decision to apply to Metis. 
 And that's how I got here.
 
 
 #### What are my goals going forward?
 
-My immediate goals are to capitalize on the 12 weeks I have at Metis. 
+My immediate goal is to capitalize on the 12 weeks I have at Metis. 
 
 After Metis is over, I plan on applying to jobs that are more engineering-focused. The job descriptions that have
-stood out to my the most tend to be labeled "Machine Learning Engineer" or "Software Engineer - Machine Learning".
+stood out to me the most tend to be labeled "Machine Learning Engineer" or "Software Engineer - Machine Learning".
 As far as industries, I am pretty open minded, but tend to lean towards renewable energy, music technology, and frankly 
 anything that isn't explicitly related to advertising technology.
 
-In any case, as I've learned in the first 6 years of my career, continuing to be hoenst with myself and make course 
+In any case, as I've learned in the first 6 years of my career, continuing to be honest with myself and continuing to make course 
 corrections will ultimately lead to fulfilling work.
