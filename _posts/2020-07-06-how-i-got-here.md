@@ -12,7 +12,7 @@ I'll spare you [my resumé](https://www.linkedin.com/in/kaplanstephen/){:target=
 
 - Graduated from the University of California - Berkeley in 2014 with a B.S. in Mechanical & Nuclear Engineering
 - Got a job as a "Mechanical Engineer" (effectively an onboarding engineer) at a small startup in the Bay Area. 
-  Transitioned into a mostly [Django](https://www.djangoproject.com/)-based Software Engineering role. 
+  Transitioned into a mostly [Django](https://www.djangoproject.com/){:target="_blank"}-based Software Engineering role. 
 - Short stint at an even smaller incubator stage startup as a Software Engineer.
 - 4-years at a large utility-scale solar energy company doing a variety of things including ad-hoc analytics,
   researching and validating physical models for solar power plant performance, to tool development in Python.
