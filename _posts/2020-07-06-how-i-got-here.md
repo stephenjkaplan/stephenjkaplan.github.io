@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How Did I Get Here (A Casual Cover Letter)
+title: How I Got Here (A Casual Cover Letter)
 ---
 
 How did I get here? In other words, how did I arrive at this moment in time where I am writing my first blog post in a 
@@ -106,16 +106,64 @@ office.
 First Solar's unique thin-film Cadmium Telluride modules. (Credit: <a href='https://www.solarpowerworldonline.com/2020/05/geronimo-energy-buys-415-mw-of-first-solar-series-6-modules-for-2022-projects/'>Solar Power World</a>)
 </small>
 
-quick recap of what i did there
+The four years that followed were _truly excellent_. The work ranged from data analysis of power plant data, researching 
+ways to improve our physical models that predicted power plant performance, creating technical sales collateral, 
+serving as the internal "consultants" for every team, presenting my work at conferences in the US, China, and Germany, 
+developing [an SDK for our energy prediction software](https://github.com/stephenjkaplan/plantpredict-python), and an 
+endless list of other rewarding projects.
 
-got team to take ML course
+Sometime a couple of years ago, my manager asked me if I wanted the company to sponsor any educational opportunities. 
+I had been curious about machine learning, so I began to peruse some of the online offerings. I ended up 
+recommending he well-known 
+[Andrew Ng Machine Learning course on Coursera](https://www.coursera.org/learn/machine-learning), as I saw it mentioned
+a number of times on different forums. My entire team expressed interest and we started the course shortly thereafter. 
+I found myself extremely stimulated by the course, which was mostly theoretical, and similar to my fixation on roller 
+coasters and renewable energy as a kid, I always came back to the thought that "I might like to do that one day".
+
+Meanwhile, while I was doing extremely well at First Solar, much in part to my previous experience as a software 
+engineer, I felt myself falling into the role of "Python educator". Much of my time was spent helping people 
+create [Anaconda](https://www.anaconda.com/products/individual) environments, or understand 
+[class inheritance](https://docs.python.org/3/tutorial/classes.html). This felt good in some ways - it continued 
+to build my confidence in my software skills, a process that began after I lost my previous job 4 years prior. However, 
+I felt unsatisfied. I realized that **I don't want to be the person answering all of the questions. I want to be 
+the one asking the questions, growing, learning, and being challenged.** I didn't have any major gripes with my company, 
+but I was ready for the next stage of growth in my career. Plus, there was that whole machine learning 
+thing...
+
 
 #### Why did I apply to Metis?
 
-interview at Parsyl plus suggestion
-my realization on business trip, mention the perfect timing of Metis start and music
+Eventually, I applied to a few Data Scienctist positions in Denver. (I had since moved there and was working 
+remotely for First Solar.) I wasn't necessarily expecting to get an offer, but I knew I could at least get an interview 
+or two, and I was curious to see where I stood. 
+
+![Denver Skyline](images/denver_skyline.jpg)
+
+<small>My new home.</small>
+
+I was able to get my foot in the door at one company in particular, and made it past the initial screening to the 
+take-home assessment. The take home assessment involved some exploratory data analysis and a machine learning challenge.
+My analytics and software experience was only able to get me so far, and I was rejected. However, something unlikely 
+happened: the company's Director of Data Science emailed back and forth with me, and his messages 
+were extremely supportive, encouraging me to continue this pursuit. He told me that he had graduated from a data science 
+bootcamp called Metis and strongly recommended it to me.
+
+A week later, I was on a business trip for First Solar. As I sat on the bed in my hotel room after a day of meeting, 
+I took a look at Metis' academic calendar, just for the hell of it. I took a look at my Google calendar. I thought 
+to myself, if I resign in the next month or so, and take a 2 month break to unwind and work on 
+[my music](https://open.spotify.com/artist/5qdyMjUQjxhdWtKjHvh3cm?si=GhAcmWQyQSKaaAaJlZwJqg) (something I had been 
+fantasizing about for years), I could start Metis in the summer. That's when I made my decision to apply to Metis. 
+And that's how I got here.
 
 
 #### What are my goals going forward?
 
+My immediate goals are to capitalize on the 12 weeks I have at Metis. 
 
+After Metis is over, I plan on applying to jobs that are more engineering-focused. The job descriptions that have
+stood out to my the most tend to be labeled "Machine Learning Engineer" or "Software Engineer - Machine Learning".
+As far as industries, I am pretty open minded, but tend to lean towards renewable energy, music technology, and frankly 
+anything that isn't explicitly related to advertising technology.
+
+In any case, as I've learned in the first 6 years of my career, continuing to be hoenst with myself and make course 
+corrections will ultimately lead to fulfilling work.
