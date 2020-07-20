@@ -29,7 +29,7 @@ I rode my first roller coaster ("Great Bear", pictured below) on a middle school
 roller coaster on Earth, I eventually figured out that you have to study engineering to build roller coasters. 
 <br><br>
 
-![Great Bear](images/great_bear.jpg)
+![Great Bear](images/2020-07-06/great_bear.jpg)
 
 <small>Great Bear, a roller coaster at Hershey Park in Pennsylvania.</small>
 
@@ -44,7 +44,7 @@ all carbon-free energy sources is necessary to move away from fossil fuels, incl
 the purpose of foreshadowing.)
 <br><br>
 
-![Sanmen Nuclear Plant](images/sanmen_nuclear_plant.jpg)
+![Sanmen Nuclear Plant](images/2020-07-06/sanmen_nuclear_plant.jpg)
 
 <small>
 Units 1 & 2 at Sanmen Nuclear Power Plant in China. The reactors are Westinghouse AP1000, which use modern passive safety systems. (Credit: <a href='https://www.world-nuclear-news.org/NN-First-AP1000-unit-begins-generating-power-0207184.html'>World Nuclear News</a>)
@@ -65,7 +65,7 @@ two major obstacles:
 1. Nuclear Power isn't very popular in the US, and there are a limited set of entry level roles.
 2. I wanted to stay in the Bay Area after college, and the handful of nuclear power companies seemed to be elsewhere.
 
-![Silicon Valley](images/silicon_valley.jpeg)
+![Silicon Valley](images/2020-07-06/silicon_valley.jpeg)
 
 <small>The Bay Area: You may not start out a software engineer, but you will become one. (Credit: HBO)</small>
 
@@ -100,7 +100,7 @@ emotionally, despite a few months of unemployment. A good friend of mine from hi
 Performance & Prediction team at First Solar, and I was soon interviewed and offered a position at their San Francisco 
 office.
 
-![First Solar Series 6](images/series_6.jpg)
+![First Solar Series 6](images/2020-07-06/series_6.jpg)
 
 <small>
 First Solar's unique thin-film Cadmium Telluride modules. (Credit: <a href='https://www.solarpowerworldonline.com/2020/05/geronimo-energy-buys-415-mw-of-first-solar-series-6-modules-for-2022-projects/'>Solar Power World</a>)
@@ -137,7 +137,7 @@ Eventually, I applied to a few Data Scientist positions in Denver. (I had since 
 remotely for First Solar.) I wasn't necessarily expecting to get an offer, but I knew I could at least get an interview 
 or two, and I was curious to see where I stood. 
 
-![Denver Skyline](images/denver_skyline.jpg)
+![Denver Skyline](images/2020-07-06/denver_skyline.jpg)
 
 <small>My new home.</small>
 
