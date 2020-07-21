@@ -214,6 +214,6 @@ Aside from the theory and technical skilled learned, I took away a couple of gen
 - When feature engineering and model tuning gets tedious, take a step back and think about the problem at hand from a 
   more global, common sense perspective.
     
-**The code for this project can be accessed [here](https://github.com/stephenjkaplan/song-popularity-predictor).**
+**The code for this project can be accessed [here](https://github.com/stephenjkaplan/song-popularity-predictor){:target="_blank"}.**
 
-**The Streamlit app I created for this project can be accessed [here](https://song-popularity-predictor.appspot.com/).**
+**The Streamlit app I created for this project can be accessed [here](https://song-popularity-predictor.appspot.com/){:target="_blank"}.**
