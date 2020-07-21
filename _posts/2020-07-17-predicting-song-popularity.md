@@ -160,24 +160,61 @@ feature to use in a model that predicts song popularity.
 
 ![Correlation matrix after feature engineering.](images/2020-07-17/correlation_after_eng.png)
 
-#### Modeling
+#### Modeling & Evaluation of Metrics
 
+I began developing the final model by splitting the full data set into a training/validation (train-val) set (75% of 
+data) and test set (25% of data). Running cross validation on a linear regression model using the train-val set 
+yielded a training R-squared score of `0.61`, a validation R-squared score of `0.58`, and a root mean square error 
+(RMSE) of `12.29`.
 
-#### Evaluation of Metrics
+In an attempt to reduce model overfitting, I ran both a Lasso and Ridge regression with varying regularization 
+parameters (alpha), both yielded similar best results of a training R-squared score of `0.62`, validation R-squared 
+score of `0.61`, and similar RMSE as with the baseline linear regression. Both models succeeded in reducing complexity
+and raising the validation R-squared score, without affecting RMSE.
 
+From there, I experimented to see if I could raise the R-squared score and lower RMSE. I tried a combination of 
+polynomial regression and Lasso regression to eliminate unneeded polynomial features, which yielded very similar 
+results. Since the coefficients of polynomial regression are harder to interpret than linear features, and there 
+was no improvement in model performance, I threw the model out. 
+
+Another experiment I tried was pre-removing the features from the dataset that the initial Lasso removed (by reducing 
+their coefficients to zero). I then ran additional Lasso and Ridge regressions on that dimension-reduced feature set to 
+see if that had any effect on the model performance. This also yielded similar results, so I decided to go with the 
+model that I felt would be the easiest to interpret. The Lasso model run on the reduced feature set left me with a 
+model with reduced complexity from the original baseline regression, and a slightly reduced feature set. It had a few 
+slight advantages: a validation R-squared score on the higher end of all of my models (`0.619`), the smallest difference 
+between training R-squared score and validation R-squared score (`0.05`) indicating very little overfitting, and an 
+RMSE on the lower end of all of my models (`12.1`).
+
+Scoring the model on the test yielded a final R-squared score of `0.579` and RMSE of `13.8`, indicating that on average 
+the predictions of song popularity are off by `13.8`. If an artist is trying to determine if their song will be popular 
+a score of, for instance, 70 out of 100 might be, in some cases, anywhere from 57 to 83. Based on my understanding 
+of the distributions of popularity on Spotify, even a score on that lower end indicates a successful song. This model 
+could be improved quite a bit, but still could provide value for hip hop artist trying to predict the impact of their 
+music.
+
+As an additional quality check on the model, I evaluated a few of the essential linear regression assumptions:
+
+1. The residuals have a fairly constant variance for all predictions.
+2. The predictions are approximately normally distributed.
 
 ### Final Steps
 
 #### Deploying the Model 
 
+After scoring the final model, I challenged myself to create a 
+[simple web application](https://song-popularity-predictor.appspot.com/) that allows anyone to play around with the 
+model parameters and make predictions, using [Streamlit](https://www.streamlit.io/).
+
+As a final challenge, I learned how to make a Dockerfile for the application and deploy it to Google Cloud App Engine
+
 #### Lessons Learned
 
-- 
+Aside from the theory and technical skilled learned, I took away a couple of general lessons from this project:
 
-- lessons learned
-    - the correlations of my model don't necessarily imply causation
-    - using common sense can help you choose an appropriate scope
-    - scope
+- Refining scope can lead to a much more successful project, model, or product.
+- When feature engineering and model tuning gets tedious, take a step back and think about the problem at hand from a 
+  more global, common sense perspective.
     
 **The code for this project can be accessed [here](https://github.com/stephenjkaplan/song-popularity-predictor).**
 **The Streamlit app I created for this project can be accessed [here](https://song-popularity-predictor.appspot.com/).**
