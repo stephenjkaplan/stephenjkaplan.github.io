@@ -74,7 +74,7 @@ correlation with the target.
 Running a baseline Linear Regression model on the data yielded a validation R-squared score of `0.091`, which felt 
 too low to do extensive feature engineering and training on given the time constraint.
 
-![Narrowing Scope](images/2020-07-17/scope.png)
+![Narrowing Scope](/images/2020-07-17/scope.png)
 
 <small>The process of choosing an appropriate project scope.</small>
 
@@ -100,7 +100,7 @@ saw no obvious correlations and knew that I hadn't quite hit the mark on my proj
 linear regression model doubled my previous R-squared score to around `0.2`, but this still didn't seem like a good 
 starting point for feature engineering and tuning, given my relative lack of exposure to those skills at the time. 
 
-![Popularity Pairplot](images/2020-07-17/popularity_pairplot.png)
+![Popularity Pairplot](/images/2020-07-17/popularity_pairplot.png)
 
 <small>
 Popularity plotted versus a few track audio features/metadata, showing very little feature-by-feature 
@@ -131,7 +131,7 @@ artist follower count (available via Spotify's API) still sounded like a strong 
 After querying Spotify's API for each artist of each song and adding the number of followers as a column to the data, 
 I plotted a correlation matrix:
 
-![Popularity Pairplot](images/2020-07-17/correlation_before.png)
+![Popularity Pairplot](/images/2020-07-17/correlation_before.png)
 
 <small>Correlation matrix of data after adding number of artist followers as a feature.</small>
 
@@ -142,20 +142,20 @@ Sure enough, artist followers was the most highly correlated feature.
 The feature I added turned out to be the feature I engineered. Upon inspecting the plot of popularity versus artist 
 followers, I noticed that the relationship could be fit to a logarithmic equation (`log(x)`). 
 
-![Popularity vs. Artist Followers](images/2020-07-17/log.png)
+![Popularity vs. Artist Followers](/images/2020-07-17/log.png)
 
 <small>Song Popularity vs. Artist Followers, a sparse, but logarithmic relationship.</small>
 
 Log transforming the feature (taking the log of artist followers) yielded a relatively strong linear relationship.
 
-![Popularity vs. Log of Artist Followers](images/2020-07-17/linear.png)
+![Popularity vs. Log of Artist Followers](/images/2020-07-17/linear.png)
 
 <small>Song Popularity vs. the Log of Artist Followers, showing a linear relationship.</small>
 
 Finally, plotting the correlation matrix with the addition of `Log(Artist Followers)` shows a more highly correlated 
 feature to use in a model that predicts song popularity.
 
-![Correlation matrix after feature engineering.](images/2020-07-17/correlation_after_eng.png)
+![Correlation matrix after feature engineering.](/images/2020-07-17/correlation_after_eng.png)
 
 #### Modeling & Evaluation of Metrics
 
