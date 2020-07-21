@@ -3,6 +3,7 @@ layout: post
 title: Predicting Popularity of Hip-Hop Music on Spotify
 ---
 
+
 _Disclaimer: Much of this post assumes that the reader has some basic data science knowledge, as opposed to my 
 [inaugural post](https://stephenjkaplan.github.io/2020/07/06/how-i-got-here/) which was a self-reflective, career 
 oriented post._
@@ -19,7 +20,7 @@ We were given two weeks to complete a project that satisfied the following const
 Generally, I enjoyed working through the full data science workflow for the first time and being able to go deep into a 
 data set. This blog post aims to detail my process, from the initial search for data to deploying the model.
 
-#### Motivation
+### Motivation
 
 My opinion going into my first project was that aside from all technical metrics, there are two determinants of a 
 compelling personal portfolio project:
@@ -45,7 +46,9 @@ a song based on its various qualities, or to interpret the model by making recom
 Choosing a target to predict that accomplished this goal took some time, but was a good lesson in selection of 
 project scope.
 
-#### Narrowing the Scope
+### Narrowing the Scope
+
+#### Initial Scope
 
 The first thing that came to mind to predict was Pitchfork Album Ratings. [Pitchfork](https://pitchfork.com/) is 
 arguably the most well-established music blog on the internet. The website's most prominent feature is its album reviews, 
@@ -55,28 +58,126 @@ of artists like [Arcade Fire](https://pitchfork.com/reviews/albums/452-funeral/)
 [Bon Iver](https://pitchfork.com/reviews/albums/10709-for-emma-forever-ago/). Surely, a good review on Pitchfork is a 
 strong indicator of a successful album.
 
+However, initial exploratory data analysis quickly informed me that Pitchfork album rating might not be a promising 
+target variable. Two things made this clear:
+
+1. When plotting all of my feature data against Pitchfork album rating, there was no relationship. Could I have 
+chosen new features? Maybe, but I really was enjoying exploring the Spotify audio feature data, and believed that there 
+was some value in it.
+
+![Pitchfork Pairplot](images/2020-07-17/pitchfork_pairplot.png)
+
+<small>
+Pitchfork Album rating plotted versus a few track audio features/metadata, showing very little feature-by-feature 
+correlation with the target.
+</small>
+
+2. Running a baseline Linear Regression model on the data yielded a validation R-squared score of `0.091`, which felt 
+too low to do extensive feature engineering and training on giving the time constraint.
+
 ![Narrowing Scope](images/2020-07-17/scope.png)
 
-<small>The processing of choosing an appropriate project scope.</small>
+<small>The process of choosing an appropriate project scope.</small>
+
+Why was this model performing so poorly? If you remember, the Spotify audio features are available for individual tracks, 
+but the Pitchfork album ratings are for...well, albums. I had to do some data processing to aggregate the track-level 
+audio features to album-level features, which mostly amounted to taking averages. My suspicion is that since an album 
+can contain songs with varied "vibes", averaging features like "energy" and "danceability" neutralized the significance 
+of these metrics. Beyond that, it seems that album reviews and ratings are highly subject to the tastes of the person 
+writing a particular review, or perhaps what side of the bed they wake up on that morning. Something that subjective 
+is unlikely to show a clear pattern in data.
+
+If I was being asked by an employer or client to specifically predict Pitchfork Album Ratings, I would have persisted. 
+In that situation, I also would have knowledge of more advanced machine learning algorithms to try out, rather than be 
+in the process of working through a data science curriculum. While I'm looking forward to having a job, being a 
+student gave me the flexibility to pivot my project slightly.
+
+#### Setting a New Target
+
+My next objective was to find a track-level feature that in some way represented commercial success. Spotify, being 
+the good data stewards that they are, provides a "popularity score" for each track on their platform via the API. 
+Spotify doesn't provide documentation on how they calculated popularity, a score given on a 0-100 scale, but they 
+do state that it is highly dependent on the number of streams a track has, and how recent those streams are - in other 
+words, how "hot" or "viral" a track has been. Once again, by creating a pair plot of the new target (popularity), I 
+saw no obvious correlations and knew that I hadn't quite hit the mark on my project scope. Running another baseline 
+linear regression model doubled my previous R-squared score to around `0.2`, but this still didn't seem like a good 
+starting point for feature engineering and tuning, given my relative lack of exposure to those skills at the time. 
+
+![Popularity Pairplot](images/2020-07-17/popularity_pairplot.png)
+
+<small>
+Popularity plotted versus a few track audio features/metadata, showing very little feature-by-feature 
+correlation with the target.
+</small>
+
+#### Choosing the Final Scope
+
+It was then that I learned the value of stepping away from the Jupyter Notebook for a few minutes to think about the 
+problem at hand from a practical, common-sense perspective. "Different genres of music are popular for different 
+reasons, right?", I thought to myself. For instance, a fan of Folk/Country probably won't like a "danceable", "high 
+energy song", but a fan of electronic music might. Fortunately, I already had a column for genre in my data set, so 
+I separated the data into each genre and plotted a correlation matrix for each. Hip Hop music showed the most 
+highly correlated features, so I made the decision to finalize my scope, and title my project, "Predicting Popularity 
+of Hip Hop Music on Spotify". I did some data cleaning on the filtered hip hop data, and persisted my data set in 
+preparation for the next phase of the project.
+
+### Feature Engineering, Modeling, & Technicals
+
+The first way I improved the baseline model was through feature additions and feature engineering. Both of these tasks 
+can take you into deep rabbit holes - given the time limit, I decided to set a reasonable goal of adding at least 
+one brand new column of data, and one column engineered from an existing column.
+
+#### Feature Addition: Artist Followers
+
+While Spotify's definition of song "popularity" implies that even up and coming artists can have very popular songs, 
+artist follower count (available via Spotify's API) still felt like it could be a strong predictor of song popularity. 
+After querying Spotify's API for each artist of each song and adding the number of followers as a column to the data, 
+I plotted a correlation matrix:
+
+![Popularity Pairplot](images/2020-07-17/correlation_matrix.png)
+
+<small>Correlation matrix of data after adding number of artist followers as a feature.</small>
+
+Sure enough, artist followers was the most highly correlated feature.
+
+#### Feature Engineering: Log Transforming Artist Followers
+
+The feature I added turned out to be the feature I engineered. Upon inspecting the plot of popularity versus artist 
+followers, I noticed that the relationship could be fit to a logarithmic equation (`log(x)`). 
+
+![Popularity vs. Artist Followers](images/2020-07-17/log.png)
+
+<small>Song Popularity vs. Artist Followers, a sparse, but logarithmic relationship.</small>
+
+Log transforming the feature (taking the log of artist followers) yielded a relatively strong linear relationship.
+
+![Popularity vs. Log of Artist Followers](images/2020-07-17/linear.png)
+
+<small>Song Popularity vs. the Log of Artist Followers, showing a linear relationship.</small>
+
+Finally, plotting the correlation matrix with the addition of `Log(Artist Followers)` shows a more highly correlated 
+feature to use in a model that predicts song popularity.
+
+![Correlation matrix after feature engineering.](images/2020-07-17/correlation_after_eng.png)
+
+#### Modeling
 
 
+#### Evaluation of Metrics
 
-#### Exploratory Analysis, Modeling, & Technicals
 
-- a much more technical section
-    - issues with data
-    - modeling flow
-    - scoring
+### Final Steps
 
 #### Deploying the Model 
 
-#### Interpretation
-
-
 #### Lessons Learned
 
+- 
 
 - lessons learned
     - the correlations of my model don't necessarily imply causation
-    
+    - using common sense can help you choose an appropriate scope
     - scope
+    
+**The code for this project can be accessed [here](https://github.com/stephenjkaplan/song-popularity-predictor).**
+**The Streamlit app I created for this project can be accessed [here](https://song-popularity-predictor.appspot.com/).**
