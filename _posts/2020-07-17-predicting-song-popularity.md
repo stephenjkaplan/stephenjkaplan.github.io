@@ -64,7 +64,7 @@ When plotting all of my feature data against Pitchfork album rating, there was n
 chosen new features? Maybe, but I really was enjoying exploring the Spotify audio feature data, and believed that there 
 was some value in it.
 
-![Pitchfork Pairplot](images/2020-07-17/pitchfork_pairplot.png)
+![Pitchfork Pairplot](/images/2020-07-17/pitchfork_pairplot.png)
 
 <small>
 Pitchfork Album rating plotted versus a few track audio features/metadata, showing very little feature-by-feature 
