@@ -5,8 +5,8 @@ title: Predicting Popularity of Hip-Hop Music on Spotify
 
 
 _Disclaimer: Much of this post assumes that the reader has some basic data science knowledge, as opposed to my 
-[inaugural post](https://stephenjkaplan.github.io/2020/07/06/how-i-got-here/) which was a self-reflective, career 
-oriented post._
+[inaugural post](https://stephenjkaplan.github.io/2020/07/06/how-i-got-here/){:target="_blank"} which was a 
+self-reflective, career oriented post._
 
 I just completed the first major independent project during my time as a student at [Metis](https://thisismetis.com). 
 We were given two weeks to complete a project that satisfied the following constraints:
