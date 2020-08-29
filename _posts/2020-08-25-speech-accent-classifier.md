@@ -4,12 +4,12 @@ title: Classifying Accents from Audio of Spoken Voice
 ---
 
 _This blog post details my second project completed while studying at 
-[Metis](https://thisismetis.com){:target="_blank"}._ The code for this projec can be found 
-[here](https://github.com/stephenjkaplan/speech-accent-classifier).
+[Metis](https://thisismetis.com){:target="_blank"}._ The code for this project can be found 
+[here](https://github.com/stephenjkaplan/speech-accent-classifier){:target="_blank"}.
 
 ### Project Overview
 
-The guidelines of this project were as follows:
+The guidelines for this project were as follows:
 - Create a SQL database to store all tabular data. Make queries from this database to access data while performing 
   analysis and modeling.
 - Choose a project objective that requires use of supervised classification algorithms. Experiment with Random Forest, 
@@ -17,18 +17,18 @@ The guidelines of this project were as follows:
 - Deploy the model in a [Flask](https://flask.palletsprojects.com/en/1.1.x/){:target="_blank"} application or other 
   interactive visualization. 
 
-It took me a bit longer than previously to decide on a project. I found myself stuck in a mental loop:
+It took me a bit longer than expected to decide on a project. I found myself stuck in a mental loop:
 
 1. Search for interesting datasets.
 2. Find something promising that would be a suitable binary or multi-classification problem.
 3. Realize that the dataset had been downloaded by thousands of people, has been used on large 
-   [Kaggle](https://www.kaggle.com/) competitions, etc. 
+   [Kaggle](https://www.kaggle.com/){:target="_blank"} competitions, etc. 
 4. Self-doubt. ("Is my project original enough? Will it stand out enough?")
 5. Repeat.
 
 Eventually, I was able to convince myself that as long as I pick something of interest to me and do a good job of 
-applying what I had learned, it could be a successful project. What truly pushed me to select a dataset was the time 
-limit. This experience taught me the balance between thoughtfully planning a project, but still efficiently delivering a 
+applying what I had learned, it could be a successful project...but in all honesty it was the time limit that helped me 
+to decide. This experience taught me the balance between thoughtfully planning a project, but still efficiently delivering a 
 useful MVP on a deadline. It's more important to finish a simple yet useful project than come up empty handed with an 
 overly complex or over-perfected project.
 
@@ -37,15 +37,15 @@ was the result of narrowing the scope of my initial project objective, as explai
 
 ### The Dataset
 
-I used the [Speaker Accent Recognition Dataset](https://archive.ics.uci.edu/ml/datasets/Speaker+Accent+Recognition#) 
-from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.php). This dataset includes data  
-extracted from over 300 audio recordings of speakers from six different countries. Half of the data contains speakers 
-from the United States, and the other half is divided among Spain, France, Germany, Italy, and the United Kingdom. 
+I used the [Speaker Accent Recognition Dataset](https://archive.ics.uci.edu/ml/datasets/Speaker+Accent+Recognition#){:target="_blank"}
+from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.php){:target="_blank"}. This dataset 
+includes data extracted from over 300 audio recordings of speakers from six different countries. Half of the data contains 
+speakers from the United States, and the other half is divided among Spain, France, Germany, Italy, and the United Kingdom. 
 (The original paper is referenced in [References](#references).)
 
 Each audio recording in this dataset was pre-processed and transformed into 12 
-[Mel-frequency Cepstrum Coefficients](https://en.wikipedia.org/wiki/Mel-frequency_cepstrum) (MFCC). A long list of 
-transformations have to be applied to the audio sample, but an oversimplified definition would be the "power" of the 
+[Mel-frequency Cepstrum Coefficients](https://en.wikipedia.org/wiki/Mel-frequency_cepstrum){:target="_blank"} (MFCC). A long list of 
+transformations have to be applied to the audio sample, but an oversimplified definition would be: the "power" of the 
 signal in each perceptible frequency range.
 
 ![MFCC](/images/2020-08-25/mfcc.jpeg)
