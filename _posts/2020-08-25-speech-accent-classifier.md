@@ -43,11 +43,16 @@ extracted from over 300 audio recordings of speakers from six different countrie
 from the United States, and the other half is divided among Spain, France, Germany, Italy, and the United Kingdom. 
 (The original paper is referenced in [References](#references).)
 
-
 Each audio recording in this dataset was pre-processed and transformed into 12 
 [Mel-frequency Cepstrum Coefficients](https://en.wikipedia.org/wiki/Mel-frequency_cepstrum) (MFCC). A long list of 
 transformations have to be applied to the audio sample, but an oversimplified definition would be the "power" of the 
 signal in each perceptible frequency range.
+
+![MFCC](/images/2020-08-25/mfcc.jpeg)
+
+<small>
+It looks good, but what does it mean?
+</small>
 
 The data was easy to acquire (a simple .csv download). However, in order to add a learn element to the project, I 
 created a SQL database on an AWS EC2 instance to store the data and access it remotely.
