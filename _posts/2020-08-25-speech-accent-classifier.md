@@ -1,10 +1,11 @@
 ---
 layout: post
-title: Classifying Accents from Audio Recordings
+title: Classifying Accents from Audio of Spoken Voice
 ---
 
 _This blog post details my second project completed while studying at 
-[Metis](https://thisismetis.com){:target="_blank"}._
+[Metis](https://thisismetis.com){:target="_blank"}._ The code for this projec can be found 
+[here](https://github.com/stephenjkaplan/speech-accent-classifier).
 
 ### Project Overview
 
@@ -36,21 +37,72 @@ was the result of narrowing the scope of my initial project objective, as explai
 
 ### The Dataset
 
-mfcc
-original paper
-mention deploying SQL to AWS EC2
+I used the [Speaker Accent Recognition Dataset](https://archive.ics.uci.edu/ml/datasets/Speaker+Accent+Recognition#) 
+from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.php). This dataset includes data  
+extracted from over 300 audio recordings of speakers from six different countries. Half of the data contains speakers 
+from the United States, and the other half is divided among Spain, France, Germany, Italy, and the United Kingdom. 
+(The original paper is referenced in [References](#references).)
+
+
+Each audio recording in this dataset was pre-processed and transformed into 12 
+[Mel-frequency Cepstrum Coefficients](https://en.wikipedia.org/wiki/Mel-frequency_cepstrum) (MFCC). A long list of 
+transformations have to be applied to the audio sample, but an oversimplified definition would be the "power" of the 
+signal in each perceptible frequency range.
+
+The data was easy to acquire (a simple .csv download). However, in order to add a learn element to the project, I 
+created a SQL database on an AWS EC2 instance to store the data and access it remotely.
 
 ### Obstacles
 
-scoping, lack of data
+#### Modifying Initial Scope
 
-MFCC interpretability
+Similarly to my [last project](https://stephenjkaplan.github.io/2020/07/17/predicting-song-popularity/), I had to 
+significantly reduce the scope while working through it. Initially I intended to create a multinomial classifier 
+for all of the accents present in the dataset, but the data was too limited. Not only was the total size of the 
+dataset particularly small, but this was further compounded by the class imbalance between American accents and all 
+other accents. Unsurprisingly, I pivoted towards creating a binary classifier to distinguish between American and 
+all other accents.
 
+#### Inability to Reproduce Features
+
+I had hoped to increase the sample size of non-American accents for each by transforming audio from the 
+[Speech Accent Archive](https://accent.gmu.edu/) into MFCC features. However, I was unable to reproduce the existing 
+data with a couple of different Python packages ([librosa](https://librosa.org/doc/latest/index.html) and 
+[python-speech-features](https://python-speech-features.readthedocs.io/en/latest/)). Therefore, I wouldn't have been 
+able to trust the results of applying these packages to new audio recordings. This further contributed to the need to 
+narrow the scope of the project to a binary classifier.
+
+#### Interpretability of Features
+
+Due to the esoteric nature of the field of psychoacoustics, MFCC features are not interpretable to most people 
+(including myself). If I told you that "an accent being American is dependent on the 10th MFCC", that would be 
+effectively meaningless. This was unfortunate for two reasons:
+
+1. I couldn't intelligently and creatively do feature engineering to improve my model. Using a more brute force 
+   feature engineering approach was somewhat helpful, but having some domain specific knowledge is advantageous.
+   
+2. The classifier itself wasn't interpretable. In other words, I couldn't draw any useful conclusions on the 
+   relationship between particular MFCC and particular accents.
 
 ### Modeling & Results
 
+#### Exploratory Data Analysis
+
+The data was of high quality and minimal cleaning was necessary, to I moved quickly into exploratory data analysis.
+
+#### Feature Engineering 
+
+#### Model Selection & Tuning
+
+#### Threshold Tuning
+
+#### Final Scoring
 
 ### Flask App
+
+
+### Summary 
+
 
 
 #### References
