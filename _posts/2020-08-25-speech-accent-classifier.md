@@ -51,7 +51,7 @@ signal in each perceptible frequency range.
 ![MFCC](/images/2020-08-25/mfcc.jpeg)
 
 <small>
-It looks good, but what does it mean?
+MFCC Plot: It looks good, but what does it mean?
 </small>
 
 The data was easy to acquire (a simple .csv download). However, in order to add a learn element to the project, I 
@@ -91,11 +91,28 @@ effectively meaningless. This was unfortunate for two reasons:
 
 ### Modeling & Results
 
-#### Exploratory Data Analysis
+Before beginning any modeling, I trained the original dataset on K-Nearest Neighbors, Random Forest, and Logistic 
+Regression and recorded their train/val ROC AUC scores to serve as a set of baseline models.
 
-The data was of high quality and minimal cleaning was necessary, to I moved quickly into exploratory data analysis.
+#### Exploratory Data Analysis & Feature Engineering
 
-#### Feature Engineering 
+The data was of high quality and minimal cleaning was necessary so I moved quickly into exploratory data analysis.
+Upon plotting the distributions of each feature (separated by class), I noticed that some features had bimodal 
+distributions for only one class.
+
+![Bimodal](/images/2020-08-25/bimodal.png)
+
+<small>
+For features like x5, the distribution for instances where the labeled called was "American"  has a distinct second 
+mode. 
+</small>
+
+I tried added an additional boolean feature that indicated if a particular feature was in its respective bimodal range to 
+try and put more weight on that behavior in the distributions. Unfortunately this didn't improve the ROC AUC scores 
+or overfitting of the baseline models.
+
+# TODO talk about other feature engineering
+
 
 #### Model Selection & Tuning
 
