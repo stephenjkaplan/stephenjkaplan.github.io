@@ -107,25 +107,111 @@ For features like x5, the distribution for instances where the labeled called wa
 mode. 
 </small>
 
-I tried added an additional boolean feature that indicated if a particular feature was in its respective bimodal range to 
-try and put more weight on that behavior in the distributions. Unfortunately this didn't improve the ROC AUC scores 
+I tried adding an additional boolean feature that indicated if a particular feature was in its respective bimodal range 
+to try and put more weight on that behavior in the distributions. Unfortunately this didn't improve the ROC AUC scores 
 or overfitting of the baseline models.
 
-# TODO talk about other feature engineering
+I then automatically generated all interaction terms between the original features and plotting their feature 
+importances.
 
+![Feature Importance](/images/2020-08-25/feature_importance.png)
+
+<small>
+A subset of the interaction features' importances.
+</small>
+
+I used the information gained from the feature importance graph to add various interaction features, but eventually 
+realized that simply removing `x9` (one of the original MFCC features) yielded the best improvement in ROC AUC 
+as compared to the baseline model.
 
 #### Model Selection & Tuning
 
+The next step was to tune the hyperparameters on each baseline model, using the final set of selected features, to 
+achieve the best ROC AUC scores and least overfitting for each. This was all done using models in 
+[scikit-learn](https://scikit-learn.org/stable/). For the  **Logistic Regression** model, tuning involved:
+
+- Running the model with both L2 (Ridge) and L1 (Lasso) regularization.
+- Optimizing the inverse regularization strength to strike a balance between maximizing the ROC AUC validation score 
+  and reducing overfitting (minimizing the difference between the training and validation ROC AUC scores.)
+  
+![ROC AUC](/images/2020-08-25/rocauc.png)
+
+<small>
+The difference between training and validation ROC AUC scores with respect to inverse regularization strength.
+</small>
+
+![ROC AUC Val](/images/2020-08-25/rocauc_val.png)
+
+<small>
+The training and validation scores plotted separately.
+</small>
+
+This analysis resulted in a Logistic Regression with L1 regularization and `C = 0.1`, and successfully reduced 
+overfitting to a negligible amount while retaining a good ROC AUC score of `0.85`.
+ 
+Tuning **K-Nearest Neighbors (KNN)** was optimized using similar metrics, but instead on the "number of neighbors" 
+hyperparameter. The optimal KNN used `6` neighbors and resulted in an ROC AUC score of `0.92`, with reduced overfitting.
+
+Finally, for the Random Forest I tweaked the number of estimators, max depth, and maximum number of observations per 
+leaf. The best Forest yielded an ROC AUC score of `0.83`.
+
+Among these three models, the KNN performed the  best. However, I wanted to try ensembling different combinations of 
+these three models to see if I could outperform the individual KNN. It turned out that the best model was an ensemble 
+of the KNN and Logistic Regression, determined by examining a more detailed set of scores including accuracy, precision, 
+and recall of the classifier.
+
+_Bonus: I also played around with XGBoost, but had limited time to optimize the hyperparameters and was satisfied 
+enough with the performance of my optimized ensemble._
+
 #### Threshold Tuning
+
+Classification models in scikit-learn by default use a threshold of `0.5` to classify predicted probabilities as the 
+positive class (for probabilities above the threshold) or the negative class (for probabilities below). However, by 
+changing the threshold, it is possible to get better accuracy out of your model. 
+
+![Threshold Tuning](/images/2020-08-25/threshold_tuning.png)
+
+<small>
+Performance of model at different thresholds.
+</small>
+
+A threshold of `0.46` yielded negligible change in accuracy while providing a slightly better balance between 
+precision and recall.  
 
 #### Final Scoring
 
+Scoring the final model on the test set yielded an overall accuracy of `0.89`. I chose accuracy as the main scoring 
+metric because in the case of classifying accents, there's no reason to optimize precision or recall (whereas you 
+might care more about these metrics in higher risk domains such as medicine.)
+
+![Confusion Matrix](/images/2020-08-25/confusion_matrix.png)
+
+<small>
+Test set confusion matrix of final model.
+</small>
+
 ### Flask App
 
+I deployed the model via a [Flask application on Google App Engine](https://accent-identification.appspot.com/). 
+The app allows you to select audio examples of each accent, listen to the sample, view it's MFCC coefficients, and 
+play around with them to yield different predicted classes.
+
+![Flask](/images/2020-08-25/flask.png)
+
+<small>
+Screenshot of the Flask application.
+</small>
 
 ### Summary 
 
+I learned a couple of important things from completing this project:
 
+1. It's important to understand the limitations of your dataset before going too far down an impossible path. In my 
+   case, it was wise to quickly switch to a binary classification after realizing how small and imbalanced my 
+   dataset was.
+   
+2. Methodically working through model selection and tuning in an organized fashion can lead you to a model you are 
+   happy with. It can help you avoid the infinite loop of "oh, wait, let me just tweak this and try that".
 
 #### References
 Fokoue, E. (2020). [UCI Machine Learning Repository - Speaker Accent Recognition Data Set](https://archive.ics.uci.edu/ml/datasets/Speaker+Accent+Recognition). 
