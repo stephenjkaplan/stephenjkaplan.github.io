@@ -50,9 +50,11 @@ signal in each perceptible frequency range.
 
 ![MFCC](/images/2020-08-25/mfcc.jpeg)
 
+<div style="text-align:center;">
 <small>
 MFCC Plot: It looks good, but what does it mean?
 </small>
+</div>
 
 The data was easy to acquire (a simple .csv download). However, in order to add a learn element to the project, I 
 created a SQL database on an AWS EC2 instance to store the data and access it remotely.
