@@ -142,16 +142,17 @@ Sure enough, artist followers was the most highly correlated feature.
 The feature I added turned out to be the feature I engineered. Upon inspecting the plot of popularity versus artist 
 followers, I noticed that the relationship could be fit to a logarithmic equation (`log(x)`). 
 
-![Popularity vs. Artist Followers](/images/2020-07-17/log.png)
-
+<p align="center">
+<img src="/images/2020-07-17/log.png">
 <small>Song Popularity vs. Artist Followers, a sparse, but logarithmic relationship.</small>
+</p>
 
 Log transforming the feature (taking the log of artist followers) yielded a relatively strong linear relationship.
 
 <p align="center">
 <img src="/images/2020-07-17/linear.png">
-</p>
 <small>Song Popularity vs. the Log of Artist Followers, showing a linear relationship.</small>
+</p>
 
 Finally, plotting the correlation matrix with the addition of `Log(Artist Followers)` shows a more highly correlated 
 feature to use in a model that predicts song popularity.
