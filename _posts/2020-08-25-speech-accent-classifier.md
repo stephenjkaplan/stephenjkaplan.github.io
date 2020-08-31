@@ -102,15 +102,15 @@ distributions for only one class.
 
 <p align="center"><img src="/images/2020-08-25/bimodal.png"></p>
 <small>
-For features like x5, the distribution for instances where the labeled called was "American"  has a distinct second 
-mode. 
+For features like x5 [unitless], the distribution for instances where the labeled called was "American"  has a 
+distinct second mode. 
 </small>
 
 I tried adding an additional boolean feature that indicated if a particular feature was in its respective bimodal range 
-to try and put more weight on that behavior in the distributions. Unfortunately this didn't improve the ROC AUC scores 
-or overfitting of the baseline models.
+to try and put more weight on that behavior in the distributions and sort of "enforce" the separability in the data. 
+Unfortunately this didn't improve the ROC AUC scores or overfitting of the baseline models.
 
-I then automatically generated all interaction terms between the original features and plotting their feature 
+I then automatically generated all interaction terms between the original features and plotted their feature 
 importances.
 
 ![Feature Importance](/images/2020-08-25/feature_importance.png)
@@ -132,15 +132,13 @@ achieve the best ROC AUC scores and least overfitting for each. This was all don
 - Running the model with both L2 (Ridge) and L1 (Lasso) regularization.
 - Optimizing the inverse regularization strength to strike a balance between maximizing the ROC AUC validation score 
   and reducing overfitting (minimizing the difference between the training and validation ROC AUC scores.)
-  
-![ROC AUC](/images/2020-08-25/rocauc.png)
 
+<p align="center"><img src="/images/2020-08-25/rocauc.png"></p>
 <small>
 The difference between training and validation ROC AUC scores with respect to inverse regularization strength.
 </small>
 
-![ROC AUC Val](/images/2020-08-25/rocauc_val.png)
-
+<p align="center"><img src="/images/2020-08-25/rocauc_val.png"></p>
 <small>
 The training and validation scores plotted separately.
 </small>
