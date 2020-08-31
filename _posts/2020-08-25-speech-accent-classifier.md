@@ -100,13 +100,11 @@ The data was of high quality and minimal cleaning was necessary so I moved quick
 Upon plotting the distributions of each feature (separated by class), I noticed that some features had bimodal 
 distributions for only one class.
 
-<p align="center">
-  <img src="/images/2020-08-25/bimodal.png">
-    <small>
-    For features like x5, the distribution for instances where the labeled called was "American"  has a distinct second 
-    mode. 
-    </small>
-</p>
+<p align="center"><img src="/images/2020-08-25/bimodal.png"></p>
+<small>
+For features like x5, the distribution for instances where the labeled called was "American"  has a distinct second 
+mode. 
+</small>
 
 I tried adding an additional boolean feature that indicated if a particular feature was in its respective bimodal range 
 to try and put more weight on that behavior in the distributions. Unfortunately this didn't improve the ROC AUC scores 
