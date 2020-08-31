@@ -148,8 +148,9 @@ followers, I noticed that the relationship could be fit to a logarithmic equatio
 
 Log transforming the feature (taking the log of artist followers) yielded a relatively strong linear relationship.
 
-![Popularity vs. Log of Artist Followers](/images/2020-07-17/linear.png)
-
+<p align="center">
+<img src="/images/2020-07-17/linear.png">
+</p>
 <small>Song Popularity vs. the Log of Artist Followers, showing a linear relationship.</small>
 
 Finally, plotting the correlation matrix with the addition of `Log(Artist Followers)` shows a more highly correlated 
