@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Classifying Accents from Audio of Spoken Voice
+title: Classifying Accents from Audio of Human Speech
 ---
 
 _This blog post details my second project completed while studying at 
@@ -13,7 +13,7 @@ The guidelines for this project were as follows:
 - Create a SQL database to store all tabular data. Make queries from this database to access data while performing 
   analysis and modeling.
 - Choose a project objective that requires use of supervised classification algorithms. Experiment with Random Forest, 
-  Logistic Regression, XGBoost, K-Nearest Neighbors, and ensembling any combination of models.
+  Logistic Regression, XGBoost, K-Nearest Neighbors, as well as ensembling any combination of models.
 - Deploy the model in a [Flask](https://flask.palletsprojects.com/en/1.1.x/){:target="_blank"} application or other 
   interactive visualization. 
 
@@ -21,9 +21,9 @@ It took me a bit longer than expected to decide on a project. I found myself stu
 
 1. Search for interesting datasets.
 2. Find something promising that would be a suitable binary or multi-classification problem.
-3. Realize that the dataset had been downloaded by thousands of people, has been used on large 
+3. Realize that the dataset had been downloaded by thousands of people, has been used in large 
    [Kaggle](https://www.kaggle.com/){:target="_blank"} competitions, etc. 
-4. Self-doubt. ("Is my project original enough? Will it stand out enough?")
+4. Self-doubt. ("Is my project original enough? Will it stand out?")
 5. Repeat.
 
 Eventually, I was able to convince myself that as long as I pick something of interest to me and do a good job of 
@@ -44,9 +44,7 @@ speakers from the United States, and the other half is divided among Spain, Fran
 (The original paper is referenced in [References](#references).)
 
 Each audio recording in this dataset was pre-processed and transformed into 12 
-[Mel-frequency Cepstrum Coefficients](https://en.wikipedia.org/wiki/Mel-frequency_cepstrum){:target="_blank"} (MFCC). A long list of 
-transformations have to be applied to the audio sample, but an oversimplified definition would be: the "power" of the 
-signal in each perceptible frequency range.
+[Mel-frequency Cepstrum Coefficients](https://en.wikipedia.org/wiki/Mel-frequency_cepstrum){:target="_blank"} (MFCC).
 
 ![MFCC](/images/2020-08-25/mfcc.jpeg)
 
@@ -56,15 +54,15 @@ MFCC Plot: It looks good, but what does it mean?
 </small>
 </div>
 
-The data was easy to acquire (a simple .csv download). However, in order to add a learn element to the project, I 
+The data was easy to acquire (a simple .csv download). However, in order to add a learning element to the project, I 
 created a SQL database on an AWS EC2 instance to store the data and access it remotely.
 
 ### Obstacles
 
 #### Modifying Initial Scope
 
-Similarly to my [last project](https://stephenjkaplan.github.io/2020/07/17/predicting-song-popularity/), I had to 
-significantly reduce the scope while working through it. Initially I intended to create a multinomial classifier 
+Similarly to my [last project](https://stephenjkaplan.github.io/2020/07/17/predicting-song-popularity/){:target="_blank"}, I had to 
+iteratively modify the scope. Initially I intended to create a multinomial classifier 
 for all of the accents present in the dataset, but the data was too limited. Not only was the total size of the 
 dataset particularly small, but this was further compounded by the class imbalance between American accents and all 
 other accents. Unsurprisingly, I pivoted towards creating a binary classifier to distinguish between American and 
@@ -73,9 +71,9 @@ all other accents.
 #### Inability to Reproduce Features
 
 I had hoped to increase the sample size of non-American accents for each by transforming audio from the 
-[Speech Accent Archive](https://accent.gmu.edu/) into MFCC features. However, I was unable to reproduce the existing 
-data with a couple of different Python packages ([librosa](https://librosa.org/doc/latest/index.html) and 
-[python-speech-features](https://python-speech-features.readthedocs.io/en/latest/)). Therefore, I wouldn't have been 
+[Speech Accent Archive](https://accent.gmu.edu/){:target="_blank"} into MFCC features. However, I was unable to reproduce the existing 
+data with a couple of different Python packages ([librosa](https://librosa.org/doc/latest/index.html){:target="_blank"} and 
+[python-speech-features](https://python-speech-features.readthedocs.io/en/latest/){:target="_blank"}). Therefore, I wouldn't have been 
 able to trust the results of applying these packages to new audio recordings. This further contributed to the need to 
 narrow the scope of the project to a binary classifier.
 
@@ -94,7 +92,7 @@ effectively meaningless. This was unfortunate for two reasons:
 ### Modeling & Results
 
 Before beginning any modeling, I trained the original dataset on K-Nearest Neighbors, Random Forest, and Logistic 
-Regression and recorded their train/val ROC AUC scores to serve as a set of baseline models.
+Regression and recorded their training and validation ROC AUC scores to serve as a set of baseline models.
 
 #### Exploratory Data Analysis & Feature Engineering
 
@@ -102,12 +100,13 @@ The data was of high quality and minimal cleaning was necessary so I moved quick
 Upon plotting the distributions of each feature (separated by class), I noticed that some features had bimodal 
 distributions for only one class.
 
-![Bimodal](/images/2020-08-25/bimodal.png)
-
-<small>
-For features like x5, the distribution for instances where the labeled called was "American"  has a distinct second 
-mode. 
-</small>
+<p align="center">
+  <img src="/images/2020-08-25/bimodal.png">
+    <small>
+    For features like x5, the distribution for instances where the labeled called was "American"  has a distinct second 
+    mode. 
+    </small>
+</p>
 
 I tried adding an additional boolean feature that indicated if a particular feature was in its respective bimodal range 
 to try and put more weight on that behavior in the distributions. Unfortunately this didn't improve the ROC AUC scores 
