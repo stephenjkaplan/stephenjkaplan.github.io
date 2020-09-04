@@ -3,5 +3,6 @@ layout: page
 title: Résumé
 ---
 
-<img src="/images/Main_Resume_StephenKaplan_2020.png"\>
+<iframe src="/images/Main_Resume_StephenKaplan_2020.pdf" width="100%" height="600px">
+</iframe>
 
