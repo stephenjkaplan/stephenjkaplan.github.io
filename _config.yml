@@ -33,5 +33,7 @@ gems:
 # Page List
 pages_list:       
   About: '/about'
+  Résumé: '/resume'
   Archive: '/archive'
   Feed: '/index.html'
+
