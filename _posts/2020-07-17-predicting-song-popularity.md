@@ -202,11 +202,12 @@ As an additional quality check on the model, I evaluated a few of the essential 
 #### Deploying the Model 
 
 After scoring the final model, I challenged myself to create a 
-[simple web application](https://song-popularity-predictor.appspot.com/){:target="_blank"} 
+[simple web application](https://song-popularity-predictor.herokuapp.com/){:target="_blank"} 
 (using [Streamlit](https://www.streamlit.io/){:target="_blank"}) that allows anyone to play around with the 
 model parameters and make predictions. 
 
-As a final bonus, I learned how to make a Dockerfile for the application and deploy it to Google Cloud App Engine.
+~~As a final bonus, I learned how to make a Dockerfile for the application and deploy it to Google Cloud App Engine.~~
+_Update (2020-09-17): I've since migrated the app to Heroku because it is much cheaper._
 
 #### Lessons Learned
 
