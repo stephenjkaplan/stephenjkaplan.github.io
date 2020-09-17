@@ -219,4 +219,4 @@ Aside from the theory and technical skilled learned, I took away a couple of gen
     
 **The code for this project can be accessed [here](https://github.com/stephenjkaplan/song-popularity-predictor){:target="_blank"}.**
 
-**The Streamlit app I created for this project can be accessed [here](https://song-popularity-predictor.appspot.com/){:target="_blank"}.**
+**The Streamlit app I created for this project can be accessed [here](https://song-popularity-predictor.herokuapp.com/){:target="_blank"}.**
