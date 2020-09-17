@@ -193,7 +193,7 @@ Test set confusion matrix of final model.
 
 ### Flask App
 
-I deployed the model in a [Flask application on Google App Engine](https://accent-identification.appspot.com/){:target="_blank"}. 
+I deployed the model in a [Flask application on ~~Google App Engine~~ Heroku](https://speech-accent-classifier.herokuapp.com/){:target="_blank"} (migrated because it was cheaper). 
 The app allows you to select audio examples of each accent, listen to the sample, view it's MFCC coefficients, and 
 play around with them to yield different predicted classes (accents).
 
