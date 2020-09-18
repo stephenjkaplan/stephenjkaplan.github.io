@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Recommender Systems are a Joke: Unsupervised Learning with Stand-Up Comedy
+title: Recommender Systems are a Joke - Unsupervised Learning with Stand-Up Comedy
 ---
 
 _Disclaimer: This post as well as the code accompanying it contains some direct and indirect references to potentially 
