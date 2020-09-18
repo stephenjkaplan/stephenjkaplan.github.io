@@ -17,6 +17,9 @@ The Flask app I made for this project can be found [here](https://standup-comedy
 
 ### Intro
 
+![Comedy](/images/2020-09-18/comedy.jpg)
+<small>Comedy! (Image: [Scraps from the Loft](https://scrapsfromtheloft.com/stand-up-comedy-scripts/))</small>
+
 A little over halfway through the Metis data science bootcamp, the curriculum shifted from 
 [supervised](https://en.wikipedia.org/wiki/Supervised_learning){:target="_blank"} to 
 [unsupervised](https://en.wikipedia.org/wiki/Unsupervised_learning){:target="_blank"} learning. At that point, my brain was  
