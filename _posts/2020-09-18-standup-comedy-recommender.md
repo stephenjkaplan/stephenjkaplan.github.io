@@ -87,7 +87,10 @@ that can take any document from the corpus and perform the following transformat
    where each column is a word, each row represents a document in the corpus (also known as a 
    [doc-term matrix](https://en.wikipedia.org/wiki/Document-term_matrix){:target="_blank"}), and each cell 
    contains a numerical representation of the words frequency of use or some other metric.
-   
+
+![cleaning](/images/2020-09-18/cleaning.png)
+<small>Summary of text cleaning steps.</small>
+
 The final data format is "fit" on the initial dataset, and then applied to any incoming data (as is the case with 
 the [search engine feature](#search-engine-recommender-with-content-based-filtering) described later in this post.)
    
@@ -128,8 +131,6 @@ out two features:
 2. A search bar that allows a user to describe the comedy they want to see, and get content-based 
    recommendations.
 
-[insert pic]
-
 You can play around with the app [here](https://standup-comedy-recommender.herokuapp.com/){:target="_blank"}.
 
 #### Automatic Genre Filters with Topic Modeling
@@ -148,7 +149,8 @@ Ultimately, the
 [scikit-learn implementation of NMF](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html){:target="_blank"}.
 yielded the most discernible topics.
 
-[insert pic of topics]
+![topics](/images/2020-09-18/topics.png)
+<small>Examples of top words associated with modeled topics.</small>
 
 Based on the top words generated from each topic, I used my knowledge of comedy to select the following genres (keep in mind that the types of words 
 used to select genres are both topics and colloquialisms/slang):
@@ -181,7 +183,8 @@ considered "belonging" to that genre if the weight is above that threshold.
 I put the genres in a dropdown menu in the Flask application. When a user selects a genre, Javascript code runs 
 to filter out any comedy specials that are below a topic weight threshold of 0.2 for that genre.
    
-[show screenshot of feature in action]
+![genre](/images/2020-09-18/genre.png)
+<small>Filtering comedy by genres generated through topic modeling.</small>
 
 #### Search Engine Recommender with Content-Based Filtering
 
@@ -189,7 +192,8 @@ The second feature was an opportunity for me to build my first recommender syste
 Flask app doesn't have a large user base or any sort of "rating" functionality, so obviously collaborative filtering 
 was not an option. 
 
-[insert flask image]
+![recommender](/images/2020-09-18/recommender.png)
+<small>Search term recommender with content-based filtering</small>
 
 The main input to the recommender is a text field for which the user is asked to describe the type of comedy 
 they want to see. When the user submits the text, it is treated similarly to a document from the main corpus:
