@@ -3,8 +3,13 @@ layout: post
 title: Recommender Systems are a Joke: Unsupervised Learning with Stand-Up Comedy
 ---
 
-_This post documents my first foray into unsupervised learning, natural language processing, and 
-recommender systems. I completed this project over a 2-week span during my time as a student at_
+_Disclaimer: This post as well as the code accompanying it contains some direct and indirect references to potentially 
+offensive language. This is an analysis of stand-up comedy, which tends to contain curse words, racial slurs, etc. 
+However, all references are made with objective, academic intent. If you have any concerns with my treatment of 
+certain language, I'd be happy to have a conversation. You can get in touch with me via [LinkedIn](https://www.linkedin.com/in/kaplanstephen/){:target="_blank"}._
+
+This post documents my first foray into unsupervised learning, natural language processing, and 
+recommender systems. I completed this project over a 2-week span during my time as a student at
 [Metis](https://thisismetis.com){:target="_blank"}. 
 
 The code for this project can be found [here](https://github.com/stephenjkaplan/standup-comedy-recommender){:target="_blank"}.
@@ -80,7 +85,8 @@ that can take any document from the corpus and perform the following transformat
    [doc-term matrix](https://en.wikipedia.org/wiki/Document-term_matrix){:target="_blank"}), and each cell 
    contains a numerical representation of the words frequency of use or some other metric.
    
-The final data format is "fit" on the training data, and then applied to any incoming validation data. 
+The final data format is "fit" on the initial dataset, and then applied to any incoming data (as is the case with 
+the [search engine feature](#search-engine-recommender-with-content-based-filtering) described later in this post.)
    
 To elaborate a bit on vectorization: I focused on trying out two [types/implementations of vectorization in 
 scikit-learn](https://scikit-learn.org/stable/modules/classes.html#module-sklearn.feature_extraction.text){:target="_blank"}:
@@ -141,23 +147,63 @@ yielded the most discernible topics.
 
 [insert pic of topics]
 
-~~ TODO talk a bit about labeling the topics and sensitivity ~~
+Based on the top words generated from each topic, I used my knowledge of comedy to select the following genres (keep in mind that the types of words 
+used to select genres are both topics and colloquialisms/slang):
+- **Observational**: This is sort of a catch-all for "average", "every day" topics such as family, chores, marriage, pets, etc. This type of 
+   comedy is quite common.
+- **Immigrant Upbringing**: Many comedians are 1st generation Americans with parents that immigrated to the US and brought their 
+  culture with them. Comedians with recently immigrated families often talk about the humorous struggles of assimilation, the quirks 
+  of their various cultures, the pressures of their parents, and hardworking nature of their families.
+- **Relationships & Sex**: This is another very common topic in comedy, particularly for "dirty" comedians. The sub-topics range 
+  from dating, to LGBTQ humor, and heavily sexual jokes.
+- **British/Australian**: This topic was selected almost entirely based on colloquialisms of the comedian. While the United Kingdom 
+  and Australia have different cultures, they share some slang in common. If I were to continue to spend time on this project, I would 
+  probably try and separate these two topics, as British comedy historically is associate with a specific type of "dry" humor. That being said,
+  many non-American english-speaking comedians share in common a tendency to have more solid "themes" in their comedy specials as opposed 
+  to a random assortment of jokes.
+- **The Black Experience**: I put a decent amount of effort into being sensitive around this topic. (Coincidentally, I was working on this 
+  project during the height of the [protests](https://en.wikipedia.org/wiki/George_Floyd_protests){:target="_blank"} in the wake of the murder of George Floyd by police in Minneapolis). 
+  Traditionally, Black comedians have been lumped into the genre of "Urban" comedy. While the "Urban" comedy scene is extremely rich in culture, that 
+  word seems to exist as an unnecessary euphemism. It is important to consider how a machine learning algorithm might 
+  be biased in a way that might marginalize groups of people. Additionally, I recognize that there is no such thing as a 
+  "monolithic black experience" - every individual has their own experience. All that being said, I still felt that 
+  this was a valid genre since Black Americans have collectively experienced many things throughout history from 
+  slavery, to segregation, to police brutality (and everything in between). And most impressively Black comedians 
+  have turned these issues and events on their head through humor and comedy to create dialogue (while entertaining people). 
+  
+An important technical note here is that these genres are not _exclusive_ to each comedy special in the data set - 
+a comedy transcript can belong to multiple genres. Each comedy special is assigned a weight for each topic/genre, and 
+considered "belonging" to that genre if the weight is above that threshold. 
 
+I put the genres in a dropdown menu in the Flask application. When a user selects a genre, Javascript code runs 
+to filter out any comedy specials that are below a topic weight threshold of 0.2 for that genre.
+   
 [show screenshot of feature in action]
 
 #### Search Engine Recommender with Content-Based Filtering
 
-- talk about how I technically accomplished this
-- show how it work in Flask app
+The second feature was an opportunity for me to build my first recommender system with content-based filtering. My 
+Flask app doesn't have a large user base or any sort of "rating" functionality, so obviously collaborative filtering 
+was not an option. 
 
-### Thoughts on Language
+[insert flask image]
 
-- share some ethical opinions
-- why it's so interesting
+The main input to the recommender is a text field for which the user is asked to describe the type of comedy 
+they want to see. When the user submits the text, it is treated similarly to a document from the main corpus:
+cleaned, transformed, and vectorized to the same format. It is then transformed using the NMF pre-fit on the 
+comedy transcript corpus and assigned weights for each of the five topics. 
 
+Finally, the [cosine similarity](https://en.wikipedia.org/wiki/Cosine_similarity){:target="_blank"} is calculated 
+between the search term topic weights and each document (comedy special) in the transcript's topic weights. The top 10 
+comedy specials with the largest cosine similarity with respect to the search term are recommended to the user.
 
-ADD IMAGES AFTER
-- general comedy pic
-- example of doc term matrix
-- show topics
-flask app pic
+### Final Thoughts
+
+Before learning about NLP or working on this project, I never thought of language as something that can be broken down, 
+quantified, and processed by linear algebra. However, by using mathematical techniques allowing a computer to determine patterns 
+in human speech, we can learn a lot about how language works and what makes us laugh or identify with a particular 
+set of thoughts.
+
+This project also presented me with an ethical challenge when an unsupervised learning algorithm outputted 
+comedy genres that fell within cultural and ethnic bounds. It was a useful experience to have to carefully navigate 
+sensitive words, topics, and potential algorithmic bias.
