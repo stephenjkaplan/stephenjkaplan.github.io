@@ -32,7 +32,7 @@ unseen patterns in the world around us (unsupervised learning) before we can mak
 Concurrently, we were introduced to 
 [Natural Language Processing](https://en.wikipedia.org/wiki/Natural_language_processing){:target="_blank"} (NLP). In addition 
 to learning a lot specifically about NLP, one big takeaway was a clearer understanding of what is meant by
-"Artificial Intelligence" in the context of machine learning - the simple interpretation being any instance 
+"Artificial Intelligence" in the context of machine learning - any instance 
 of a computer being able to imitate (or even replicate) a human perception or ability. After this realization, 
 I went from being somewhat weary of apply machine learning to text/speech, to extremely motivated to 
 work on an NLP problem.
@@ -55,7 +55,7 @@ in a [script](https://github.com/stephenjkaplan/standup-comedy-recommender/blob/
 [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/){:target="_blank"} to parse the main text and 
 various metadata (comedian, title of comedy special, year). 
 
-After storing the data in two pandas dataframes (one for the metadata and one for the text corpus), I stored 
+After inserting the data into pandas dataframes (one for the metadata and one for the text corpus), I stored 
 it in a remote [Mongo](https://www.mongodb.com/){:target="_blank"} database on an Amazon AWS EC2 instance. Admittedly, 
 this wasn't really necessary as my corpus was small enough to store locally , but I wanted to get more comfortable with 
 both creating MongoDB collections and querying data for analysis and modeling using 
@@ -118,7 +118,7 @@ pretty aggressive words in my code (several of which are fairly offensive and I 
 Aside from also removing names/other irrelevant proper nouns, I also had to carefully decide what to do about racial slurs.
 Like it or not, racial slurs are common in stand-up comedy and can sometimes carry important meaning with regards to a 
 comedian's jokes. As a result, I left many of them in the dataset, but was also tasked with the uncomfortable task of 
-hard-coding some extremely antiquated language in the NLP pipeline class.
+hard-coding some extremely antiquated language in the NLP pipeline class for removal.
 
 ### Modeling & Flask App Features
 
@@ -143,17 +143,16 @@ of giving each topic a reasonable label.
 In relatively simple terms, topic modeling involves reducing the dimensions of the document-term matrix (words) to a specified number 
 of columns (representing the topics, and a weighting for each topic to each document). I tried a few different dimensionality reduction techniques including 
 [Latent Semantic Analysis](https://en.wikipedia.org/wiki/Latent_semantic_analysis){:target="_blank"} (LSA), 
-[Latent Dirichlet Allocation](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation){:target="_blank"}, and 
+[Latent Dirichlet Allocation](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation){:target="_blank"} (LDA), and 
 [Non-Negative Matrix Factorization](https://en.wikipedia.org/wiki/Non-negative_matrix_factorization){:target="_blank"} (NMF). 
 Ultimately, the 
-[scikit-learn implementation of NMF](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html){:target="_blank"}.
+[scikit-learn implementation of NMF](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.NMF.html){:target="_blank"}
 yielded the most discernible topics.
 
 ![topics](/images/2020-09-18/topics.png)
 <small>Examples of top words associated with modeled topics.</small>
 
-Based on the top words generated from each topic, I used my knowledge of comedy to select the following genres (keep in mind that the types of words 
-used to select genres are both topics and colloquialisms/slang):
+Based on the top words generated from each topic, I used my knowledge of comedy to select the following genres:
 - **Observational**: This is sort of a catch-all for "average", "every day" topics such as family, chores, marriage, pets, etc. This type of 
    comedy is quite common.
 - **Immigrant Upbringing**: Many comedians are 1st generation Americans with parents that immigrated to the US and brought their 
@@ -164,7 +163,7 @@ used to select genres are both topics and colloquialisms/slang):
 - **British/Australian**: This topic was selected almost entirely based on colloquialisms of the comedian. While the United Kingdom 
   and Australia have different cultures, they share some slang in common. If I were to continue to spend time on this project, I would 
   probably try and separate these two topics, as British comedy historically is associate with a specific type of "dry" humor. That being said,
-  many non-American english-speaking comedians share in common a tendency to have more solid "themes" in their comedy specials as opposed 
+  many non-American english-speaking comedians share a common tendency to have more solid "themes" in their comedy specials as opposed 
   to a random assortment of jokes.
 - **The Black Experience**: I put a decent amount of effort into being sensitive around this topic. (Coincidentally, I was working on this 
   project during the height of the [protests](https://en.wikipedia.org/wiki/George_Floyd_protests){:target="_blank"} in the wake of the murder of George Floyd by police in Minneapolis). 
@@ -178,7 +177,7 @@ used to select genres are both topics and colloquialisms/slang):
   
 An important technical note here is that these genres are not _exclusive_ to each comedy special in the data set - 
 a comedy transcript can belong to multiple genres. Each comedy special is assigned a weight for each topic/genre, and 
-considered "belonging" to that genre if the weight is above that threshold. 
+considered "belonging" to that genre if the weight is above some threshold. 
 
 I put the genres in a dropdown menu in the Flask application. When a user selects a genre, Javascript code runs 
 to filter out any comedy specials that are below a topic weight threshold of 0.2 for that genre.
@@ -207,10 +206,10 @@ comedy specials with the largest cosine similarity with respect to the search te
 ### Final Thoughts
 
 Before learning about NLP or working on this project, I never thought of language as something that can be broken down, 
-quantified, and processed by linear algebra. However, by using mathematical techniques allowing a computer to determine patterns 
+quantified, and processed by linear algebra. However, by using mathematical techniques and allowing a computer to determine patterns 
 in human speech, we can learn a lot about how language works and what makes us laugh or identify with a particular 
 set of thoughts.
 
 This project also presented me with an ethical challenge when an unsupervised learning algorithm outputted 
-comedy genres that fell within cultural and ethnic bounds. It was a useful experience to have to carefully navigate 
+comedy genres that fell within cultural and ethnic bounds. I got a lot out of learning to carefully navigate 
 sensitive words, topics, and potential algorithmic bias.
