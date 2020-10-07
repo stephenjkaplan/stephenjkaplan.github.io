@@ -87,22 +87,22 @@ it is common for companies tackling computer vision problems to out source the a
 Luckily, the open-source community once again provides, in the form of pre-annotated datasets for object detection. 
 I decided to use [Google's Open Images Dataset](https://storage.googleapis.com/openimages/web/visualizer/index.html?set=train&type=detection&c=%2Fm%2F0jg57){:target="_blank"} 
 via the [openimages](https://pypi.org/project/openimages/){:target="_blank"} Python library. This dataset 
-contains all images as well as corresponding `.xml` files containing the object classes and boundary boxes for each 
+contains images as well as corresponding `.xml` files containing the object classes and boundary boxes for each 
 image. This required me to write an [xml parser](https://github.com/stephenjkaplan/snow-grooming-object-detection/blob/master/dataset.py){:target="_blank"}
 to extract the boundary box information, but was generally an easy dataset to interact with.
+
+![topics](/images/2020-10-06/tree.png)
+
+<small>Annotated images from Google Open Images Dataset.</small>
 
 While I initially wanted to detect up to ten different classes, I ran into performance issues that I couldn't remedy
 in the short term. The trade-off was: create a model that predicts many object classes with low confidence, or one that 
 predicts fewer object classes with higher confidence. I chose the latter option which resulted in three object classes 
 for the model to detect:
 
-![topics](/images/2020-10-06/tree.png)
-
-<small>Annotated images from Google Open Images Dataset.</small>
-
 - Person
 - Tree
-- Ski Lift Pole _(Note: The Google Open Images dataset only had images labeled "street light", which look quite similar 
+- Ski Lift Pole (Note: The Google Open Images dataset only had images labeled "street light", which look quite similar 
   to the pole structure for a ski lift, so I assumed it would be a sufficient proxy. I turned out to be right: 
   when presented with only images/video from a ski mountain, the model recognized poles as "street lights". I simply 
   renamed the class label in the `.xml` files from the dataset to "pole".)
@@ -132,8 +132,8 @@ It may be obvious to some, _but what are some reasons you'd want to use transfer
 
 - In the context of image classification/object detection, fine-tuning a neural net pre-trained on a vast image 
   set allows your new model to take advantage of some general network "fundamentals", such as layers that 
-  pick up on edges, shapes, and components of a particular object in an image. The final model simply adds a 
-  layer that picks up on specific features that separate the various images/objects.
+  pick up on edges, shapes, and components of a particular object in an image. The final model adds a 
+  layer that picks up more complex combinations of fundamental features that separate the various images/objects.
 - Since only a fraction of the weights of the neural network have to be updated with every training epoch, the 
   model can be trained much more quickly.
 
@@ -142,7 +142,7 @@ It may be obvious to some, _but what are some reasons you'd want to use transfer
 Determining which computing platform and neural network library to use took up the majority of my time while working on 
 this project.
 
-##### Computing Platform
+**Computing Platform**
 
 Due to the fact that training neural networks on large datasets can be extremely CPU and RAM intensive, it is 
 common to use a GPU on a cloud compute platform rather than a laptop. Unfortunately, I initially jumped to 
@@ -154,7 +154,7 @@ I ended up choosing to work with the popular
 This platform, allows you to freely run software on GPUs using a coding interface based on [Jupyter Notebook](https://jupyter.org/){:target="_blank"}, and host 
 and access data on a Google Drive folder.
 
-##### Neural Network Toolkit
+**Neural Network Toolkit**
 
 As most people in the data science community are aware, the two most popular neural network libraries written 
 in Python are Google's [TensorFlow](https://www.tensorflow.org/){:target="_blank"} and Facebook's 
@@ -176,7 +176,7 @@ which turned out to be the perfect starting point, and led me to choose PyTorch 
 data format, creating a custom `torch.utils.data.Dataset` class, removing the "Mask R-CNN" model for instance 
 segmentation, adding custom image transformations for training, and much more.)
 
-##### Auxiliary Computer Vision Tasks
+**Auxiliary Computer Vision Tasks**
 
 Demo-ing this model on video footage required the auxiliary task of drawing predicted boundary boxes and labels 
 on each frame. The choice to perform this task was a bit more obvious - [OpenCV](https://opencv.org/){:target="_blank"}. OpenCV 
