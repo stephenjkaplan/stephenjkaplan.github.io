@@ -13,7 +13,7 @@ The code for this project can be found [here](https://github.com/stephenjkaplan/
 <br>
 _Note: There is a button within the `.ipynb` file on GitHub to open it in an interactive Google Colab environment._
 
-### Motivation & Objective
+## Motivation & Objective
 
 This was a completely open-ended project - we were simply told to choose a "passion project" in any subdomain of 
 machine learning. I was overwhelmed with the task of choosing from an infinite project space, but quickly 
@@ -60,9 +60,9 @@ The deliverables of this project were two-fold:
 1. A neural network trained to detect objects in images that a snow grooming vehicle might see in its field of view.
 2. A demo created by applying the model to snow groomer dash cam footage to draw boundary boxes around detected objects.
 
-### Methodology
+## Methodology
 
-#### Object Detection
+### Object Detection
 
 An object detection model is designed to return two sets of outputs for a given image:
 1. The detected instances of semantic objects of a variety of classes in the image (ex. "tree", "person", "car").
@@ -77,7 +77,7 @@ An object detection model is designed to return two sets of outputs for a given 
 Therefore, it follows that the training data for such a model must contain "ground truth" boundary boxes with 
 annotated class labels on each image.
    
-#### Data
+### Data
 
 It turns out that it is extremely labor intensive to manually draw boundary boxes on thousands of images. In fact, 
 it is common for companies tackling computer vision problems to out source the annotation/labeling task to 
@@ -111,7 +111,7 @@ These three classes seemed like the most essential objects for a snow grooming v
 moves up and down the mountain. I downloaded approximately 5000 images per class, some containing multiple object instances 
 (for instance, 3 annotated trees in a single image). 
 
-#### Transfer Learning
+### Transfer Learning
 
 The primary machine learning technique used for this project was 
 [transfer learning](https://www.datacamp.com/community/tutorials/transfer-learning?utm_source=adwords_ppc&utm_campaignid=1565261270&utm_adgroupid=67750485268&utm_device=c&utm_keyword=&utm_matchtype=b&utm_network=g&utm_adpostion=&utm_creative=295208661496&utm_targetid=dsa-429603003980&utm_loc_interest_ms=&utm_loc_physical_ms=9028778){:target="_blank"}.
@@ -137,12 +137,12 @@ It may be obvious to some, _but what are some reasons you'd want to use transfer
 - Since only a fraction of the weights of the neural network have to be updated with every training epoch, the 
   model can be trained much more quickly.
 
-#### Choosing the Right Tools
+### Choosing the Right Tools
 
 Determining which computing platform and neural network library to use took up the majority of my time while working on 
 this project.
 
-**Computing Platform**
+#### Computing Platform
 
 Due to the fact that training neural networks on large datasets can be extremely CPU and RAM intensive, it is 
 common to use a GPU on a cloud compute platform rather than a laptop. Unfortunately, I initially jumped to 
@@ -154,7 +154,7 @@ I ended up choosing to work with the popular
 This platform, allows you to freely run software on GPUs using a coding interface based on [Jupyter Notebook](https://jupyter.org/){:target="_blank"}, and host 
 and access data on a Google Drive folder.
 
-**Neural Network Toolkit**
+#### Neural Network Toolkit
 
 As most people in the data science community are aware, the two most popular neural network libraries written 
 in Python are Google's [TensorFlow](https://www.tensorflow.org/){:target="_blank"} and Facebook's 
@@ -176,7 +176,7 @@ which turned out to be the perfect starting point, and led me to choose PyTorch 
 data format, creating a custom `torch.utils.data.Dataset` class, removing the "Mask R-CNN" model for instance 
 segmentation, adding custom image transformations for training, and much more.)
 
-**Auxiliary Computer Vision Tasks**
+#### Auxiliary Computer Vision Tasks
 
 Demo-ing this model on video footage required the auxiliary task of drawing predicted boundary boxes and labels 
 on each frame. The choice to perform this task was a bit more obvious - [OpenCV](https://opencv.org/){:target="_blank"}. OpenCV 
@@ -185,7 +185,7 @@ for image augmentation, it also has its own machine learning modeling libraries,
 Python implementation of OpenCV, [opencv-python](https://pypi.org/project/opencv-python/){:target="_blank"} to carry out the 
 boundary box drawing task.
 
-#### Training the Model
+### Training the Model
 
 I would have liked to spend a lot more time trying out different optimizers and hyperparameters for the model, 
 but given the time constraint I settled on a model with the following features:
@@ -221,9 +221,9 @@ was due, the model was still too complex. If I had more time, I would have:
 - Leveraged more compute power to do k-fold cross validation to determine the optimal set of hyperparameters.
 - Specifically messed around with weight decay (L2 regularization) to try and reduce model complexity.
 
-#### Evaluating the Model
+### Evaluating the Model
 
-##### Quantitative Evaluation
+#### Quantitative Evaluation
 
 As [described earlier](#data), object detection training data is composed of images, boundary boxes, and labels.
 A given image may contain multiple detectable objects, and its corresponding annotation will indicate the 
@@ -253,7 +253,7 @@ My model achieved a mAP of `0.178` and a mAR of `0.319` for an IOU threshold ran
 the original object detection model that I applied transfer learning to achieve a mAP of 0.37 on the COCO 
 image dataset.
 
-##### Qualitative Evaluation: The Demo
+#### Qualitative Evaluation: The Demo
 
 In order to simulate the performance of the model on an actual snow grooming vehicle, I found some dash cam footage
 from snow cats and go pro footage from skiers moving through a mountain. I used OpenCV to separate the videos 
@@ -271,7 +271,7 @@ distinction. Upon further investigation, it turned out that the dataset I used a
 a ground truth bounding box applied to a group or single instance. This is something that could definitely 
 be incorporated to improve the model in the future.
 
-### API
+## API
 
 With just a bit of time to spare before the final presentation, I decided to prototype an API that contains 
 an endpoint for making object detection predictions on any image. I didn't spend time deploying it to a server, but 
