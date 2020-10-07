@@ -68,7 +68,9 @@ An object detection model is designed to return two sets of outputs for a given 
 1. The detected instances of semantic objects of a variety of classes in the image (ex. "tree", "person", "car").
 2. A set of Cartesian coordinates describing the boundary boxes of each detected object in units pixels. 
 
+<p align="center">
 ![Boundary Box](https://www.pyimagesearch.com/wp-content/uploads/2016/09/iou_stop_sign.jpg)
+</p>
 
 <small>Boundary box for a stop sign in an image. (Image: [PyImageSearch](https://www.pyimagesearch.com/2016/11/07/intersection-over-union-iou-for-object-detection/))</small>
 
