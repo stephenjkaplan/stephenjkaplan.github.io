@@ -17,7 +17,7 @@ _Note: There is a button within the .ipynb file on GitHub to open it in an inter
 This was a completely open-ended project - we were simply told to choose a "passion project" in any subdomain of 
 machine learning. I was overwhelmed with the task of choosing from an infinite project space, but quickly 
 asked myself a simple question to narrow down my options: _What machine learning realm did I most want to explore that 
-hadn't been heavily covered in the Metis curriculum?_ **Computer Vision**. 
+hadn't yet been covered in the curriculum?_ **Computer Vision**. 
 
 ![MNIST Dataset](https://miro.medium.com/max/800/1*LyRlX__08q40UJohhJG9Ow.png)
 
@@ -31,7 +31,9 @@ dataset). However, I wanted to build on top of that knowledge and challenge myse
 logical next step seemed to be [object detection](https://en.wikipedia.org/wiki/Object_detection#:~:text=Object%20detection%20is%20a%20computer,in%20digital%20images%20and%20videos){:target="_blank"}
 - identifying and locating multiple objects within an image. 
 
--- INSERT OBJECT DETECTION EXAMPLE WITH AV -- 
+![Object Detection Example](https://miro.medium.com/max/1400/1*VXZ8CamGG2Z0M0N4t0Fmng.jpeg)
+
+<small>An example of object detection in autonomous vehicle applications. (Image: [Towards Data Science](https://towardsdatascience.com/object-detection-with-10-lines-of-code-d6cb4d86f606))</small>
 
 I knew that object detection was one component of autonomous vehicle technology, but I felt hesitant. There are a lot of
 open source autonomous vehicle datasets out there, but I didn't feel like I could extract any more value than the 
@@ -44,7 +46,9 @@ are sometimes used for transport, but are mostly used as "snow groomers" at ski 
 and move around snow to make the mountain safer and more enjoyable for skiers and snowboarders. They operate 
 nightly, and also sometimes during the day to keep the mountain open when there is heavy snowfall.
 
--- INSERT SNOW GROOMING PICTURE --
+![Snow Groomer](https://www.pistenbully.com/fileadmin/_processed_/9/4/csm_PB600_4.6_Schraeg_acc1e47cf3.jpg)
+
+<small>A snow groomer. (Image: [Pistenbully](https://www.pistenbully.com/deu/en/level-red.html))</small>
 
 This felt like it could be a fun, novel application of autonomous vehicle technology. Snow grooming is expensive and 
 potentially hazardous - both things that can possibly be reduced through automation. Furthermore, it is a well-defined 
@@ -66,7 +70,9 @@ An object detection model is designed to return two sets of outputs for a given 
 2. A set of [Cartesian coordinates](https://mathinsight.org/cartesian_coordinates#:~:text=The%20Cartesian%20coordinates%20(also%20called,distances%20from%20the%20coordinate%20axis.){:target="_blank"} 
    describing the boundary boxes of each detected object in units pixels. 
 
--- INSERT BOUNDARY BOX IMAGE -- 
+![Boundary Box](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pyimagesearch.com%2F2016%2F11%2F07%2Fintersection-over-union-iou-for-object-detection%2F&psig=AOvVaw2zPZ7T3K4MLD1hYEBmRJof&ust=1602196765557000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOjh05rGo-wCFQAAAAAdAAAAABAD)
+
+<small>Boundary box for a stop sign in an image. (Image: [PyImageSearch](https://www.pyimagesearch.com/2016/11/07/intersection-over-union-iou-for-object-detection/))</small>
 
 Therefore, it follows that the training data for such a model must contain "ground truth" boundary boxes with 
 annotated class labels on each image.
@@ -90,7 +96,9 @@ in the short term. The trade-off was: create a model that predicts many object c
 predicts fewer object classes with higher confidence. I chose the latter option which resulted in three object classes 
 for the model to detect:
 
--- INSERT EXAMPLE OF DATASET WEBSITE -- 
+![topics](/images/2020-10-06/tree.png)
+
+<small>Annotated images from Google Open Images Dataset.</small>
 
 - Person
 - Tree
@@ -116,7 +124,9 @@ it for another task. More specifically, the process is as follows:
    classes specific to the new task.
 4. Train the model on a custom dataset suited to the new task.
 
--- INSERT SOME DIAGRAM OF TRANSFER LEARNING -- 
+![Transfer Learning](https://pennylane.ai/qml/_images/transfer_learning_general.png)
+
+<small>Transfer Learning (Image: [Pennylane](https://pennylane.ai/qml/demos/tutorial_quantum_transfer_learning.html))</small>
 
 It may be obvious to some, _but what are some reasons you'd want to use transfer learning_?
 
@@ -134,8 +144,6 @@ this project.
 
 ##### Computing Platform
 
--- INSERT GOOGLE COLAB IMAGE --
-
 Due to the fact that training neural networks on large datasets can be extremely CPU and RAM intensive, it is 
 common to use a GPU on a cloud compute platform rather than a laptop. Unfortunately, I initially jumped to 
 an overly complex option. I provisioned a server on Google Cloud (GCP), but quickly realized that this was 
@@ -147,8 +155,6 @@ This platform, allows you to freely run software on GPUs using a coding interfac
 and access data on a Google Drive folder.
 
 ##### Neural Network Toolkit
-
--- INSERT GRAPHIC --
 
 As most people in the data science community are aware, the two most popular neural network libraries written 
 in Python are Google's [TensorFlow](https://www.tensorflow.org/){:target="_blank"} and Facebook's 
@@ -171,8 +177,6 @@ data format, creating a custom `torch.utils.data.Dataset` class, removing the "M
 segmentation, adding custom image transformations for training, and much more.)
 
 ##### Auxiliary Computer Vision Tasks
-
--- INSERT SOME KIND OF IMAGE --
 
 Demo-ing this model on video footage required the auxiliary task of drawing predicted boundary boxes and labels 
 on each frame. The choice to perform this task was a bit more obvious - [OpenCV](https://opencv.org/){:target="_blank"}. OpenCV 
@@ -205,6 +209,10 @@ but given the time constraint I settled on a model with the following features:
   [Smooth L1 Loss](https://pytorch.org/docs/stable/generated/torch.nn.SmoothL1Loss.html#torch.nn.SmoothL1Loss){:target="_blank"} or 
   "Huber" loss.
 
+<p align="center"><img alt="Training Validation Plot" src="/images/2020-10-06/trainval.png"></p>
+
+<small>Training and Validation scores for each of the model's training epochs.</small>
+
 In order to assess overfitting I plotted training loss and validation loss for every epoch. By the time the project 
 was due, the model was still too complex. If I had more time, I would have:
 - Experimented with introducing [dropout layers](https://machinelearningmastery.com/dropout-for-regularizing-deep-neural-networks/){:target="_blank"}.
@@ -212,8 +220,6 @@ was due, the model was still too complex. If I had more time, I would have:
 - Trained using a larger dataset.
 - Leveraged more compute power to do k-fold cross validation to determine the optimal set of hyperparameters.
 - Specifically messed around with weight decay (L2 regularization) to try and reduce model complexity.
-
--- INSERT TRAIN VAL PLOT? -- 
 
 #### Evaluating the Model
 
@@ -230,7 +236,9 @@ In order to score the performance of the model, we need some kind of metric to c
 serves this need by calculating the area of overlap divided by the total area that both boundary boxes take up
 in space. If the predicted box were to exactly line up with the ground truth box, then `IOU = 1`.
 
--- INSERT IOU GRAPHIC --
+![IOU](https://www.pyimagesearch.com/wp-content/uploads/2016/09/iou_equation.png)
+
+<small>Intersection of Union (IoU) Calculation (Image: [PyImageSearch](https://www.pyimagesearch.com/2016/11/07/intersection-over-union-iou-for-object-detection/))</small>
 
 However, this isn't the final metric used to score the performance of the classification model. The 
 [evaluator function](https://github.com/stephenjkaplan/snow-grooming-object-detection/blob/master/utilities.py){:target="_blank"}
@@ -252,9 +260,9 @@ from snow cats and go pro footage from skiers moving through a mountain. I used 
 into frames, applied the model to each frame and drew predicted boundary boxes, and stitched the frames 
 back together into a video. This was the result:
 
-![Model in Action 1](static/demo1.gif)
+![Model in Action 1](/images/2020-10-06/demo1.gif)
 
-![Model in Action 2](static/demo2.gif)
+![Model in Action 2](/images/2020-10-06/demo2.gif)
 
 Qualitatively, the model is able to detect trees, people, and poles. This demo revealed one major point 
 of future improvement in the model: it is unable to distinguish "groupings" of objects relative to 
