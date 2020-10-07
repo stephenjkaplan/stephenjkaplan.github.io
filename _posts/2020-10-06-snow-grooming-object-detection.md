@@ -69,7 +69,7 @@ An object detection model is designed to return two sets of outputs for a given 
 2. A set of Cartesian coordinates describing the boundary boxes of each detected object in units pixels. 
 
 <p align="center">
-![Boundary Box](https://www.pyimagesearch.com/wp-content/uploads/2016/09/iou_stop_sign.jpg)
+<img alt="Boundary Box" src="https://www.pyimagesearch.com/wp-content/uploads/2016/09/iou_stop_sign.jpg" > 
 </p>
 
 <small>Boundary box for a stop sign in an image. (Image: [PyImageSearch](https://www.pyimagesearch.com/2016/11/07/intersection-over-union-iou-for-object-detection/))</small>
