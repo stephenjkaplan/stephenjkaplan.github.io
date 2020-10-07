@@ -4,32 +4,32 @@ title: Object Detection for Autonomous Snow Grooming Applications
 ---
 
 _This post is a technical overview of my [Metis](https://thisismetis.com){:target="_blank"} capstone project, completed 
-over a 3 week span. I developed a proof of concept for autonomous snow grooming vehicles at ski resorts. I accomplished 
+over a 3-week span. I developed a proof of concept for autonomous snow grooming vehicles at ski resorts. I accomplished 
 this by training a [Faster R-CNN](https://arxiv.org/abs/1506.01497){:target="_blank"} object detection model in 
 [PyTorch](https://pytorch.org/){:target="_blank"} to detect/classify obstacles in dash cam footage from vehicles moving 
 through a ski resort._
 
 The code for this project can be found [here](https://github.com/stephenjkaplan/snow-grooming-object-detection){:target="_blank"}. 
-_Note: There is a button within the .ipynb file on GitHub to open it in an interactive Google Colab environment._
+<br>
+_Note: There is a button within the `.ipynb` file on GitHub to open it in an interactive Google Colab environment._
 
 ### Motivation & Objective
 
 This was a completely open-ended project - we were simply told to choose a "passion project" in any subdomain of 
 machine learning. I was overwhelmed with the task of choosing from an infinite project space, but quickly 
 asked myself a simple question to narrow down my options: _What machine learning realm did I most want to explore that 
-hadn't yet been covered in the curriculum?_ **Computer Vision**. 
+hadn't yet been covered in the curriculum?_ The answer was **Computer Vision**. 
 
 ![MNIST Dataset](https://miro.medium.com/max/800/1*LyRlX__08q40UJohhJG9Ow.png)
 
-<small>MNIST handwritten digits dataset, commonly used for introducing image recognition. (Image: [Towards Data Science](https://towardsdatascience.com/improving-accuracy-on-mnist-using-data-augmentation-b5c38eb5a903))</small>
+<small>MNIST handwritten digits dataset, commonly used for introducing image recognition concepts. (Image: [Towards Data Science](https://towardsdatascience.com/improving-accuracy-on-mnist-using-data-augmentation-b5c38eb5a903))</small>
 
 Yet, even computer vision is a vast field of study. I thought back to the Metis curriculum, when we reviewed a relatively simple application of 
-[convolutional neural networks](https://en.wikipedia.org/wiki/Convolutional_neural_network){:target="_blank"} (CNN) to 
+[convolutional neural networks](https://en.wikipedia.org/wiki/Convolutional_neural_network){:target="_blank"} (CNN) to perform 
 image recognition (via the classic 
 [MNIST handwritten digits](https://machinelearningmastery.com/how-to-develop-a-convolutional-neural-network-from-scratch-for-mnist-handwritten-digit-classification/){:target="_blank"}
 dataset). However, I wanted to build on top of that knowledge and challenge myself with something more complex. The 
 logical next step seemed to be [object detection](https://en.wikipedia.org/wiki/Object_detection#:~:text=Object%20detection%20is%20a%20computer,in%20digital%20images%20and%20videos){:target="_blank"}
-- identifying and locating multiple objects within an image. 
 
 ![Object Detection Example](https://miro.medium.com/max/1400/1*VXZ8CamGG2Z0M0N4t0Fmng.jpeg)
 
