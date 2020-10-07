@@ -10,8 +10,15 @@ this by training a [Faster R-CNN](https://arxiv.org/abs/1506.01497){:target="_bl
 resort._
 
 The code for this project can be found [here](https://github.com/stephenjkaplan/snow-grooming-object-detection){:target="_blank"}.
-Below is the video presentation I gave as part of my Metis capstone project.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/NhGajxs4t1Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 # Motivation
+
+
+_Below is the presentation I gave as part of my final project at Metis, which is more of a
+quick overview than this post_.
+
+<p align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/NhGajxs4t1Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
