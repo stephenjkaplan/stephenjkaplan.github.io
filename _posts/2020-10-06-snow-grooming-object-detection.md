@@ -29,7 +29,7 @@ Yet, even computer vision is a vast field of study. I thought back to the Metis 
 image recognition (via the classic 
 [MNIST handwritten digits](https://machinelearningmastery.com/how-to-develop-a-convolutional-neural-network-from-scratch-for-mnist-handwritten-digit-classification/){:target="_blank"}
 dataset). However, I wanted to build on top of that knowledge and challenge myself with something more complex. The 
-logical next step seemed to be [object detection](https://en.wikipedia.org/wiki/Object_detection#:~:text=Object%20detection%20is%20a%20computer,in%20digital%20images%20and%20videos){:target="_blank"}
+logical next step seemed to be [object detection](https://en.wikipedia.org/wiki/Object_detection#:~:text=Object%20detection%20is%20a%20computer,in%20digital%20images%20and%20videos){:target="_blank"}.
 
 ![Object Detection Example](https://miro.medium.com/max/1400/1*VXZ8CamGG2Z0M0N4t0Fmng.jpeg)
 
@@ -41,13 +41,12 @@ thousands (?) of people with PhD's in computer vision that had already done so.
 
 This was the point at which I considered some of my extracurricular passions. I happen to really enjoy skiing. If you've 
 ever been to a ski resort, you might have seen a large vehicle that looks like some combination of a snow plow and a 
-military tank. These are "snow cats" - a continuous track vehicle designed to move on rugged, snowy terrain. Snow cats 
+military tank. These are "snow cats" - continuous track vehicles designed to move on rugged, snowy terrain. Snow cats 
 are sometimes used for transport, but are mostly used as "snow groomers" at ski resorts. Snow grooming vehicles smooth 
 and move around snow to make the mountain safer and more enjoyable for skiers and snowboarders. They operate 
 nightly, and also sometimes during the day to keep the mountain open when there is heavy snowfall.
 
 ![Snow Groomer](https://www.pistenbully.com/fileadmin/_processed_/9/4/csm_PB600_4.6_Schraeg_acc1e47cf3.jpg)
-
 <small>A snow groomer. (Image: [Pistenbully](https://www.pistenbully.com/deu/en/level-red.html))</small>
 
 This felt like it could be a fun, novel application of autonomous vehicle technology. Snow grooming is expensive and 
@@ -55,9 +54,9 @@ potentially hazardous - both things that can possibly be reduced through automat
 problem in the sense that a snow grooming vehicle only has to be able to detect a narrow subset of obstacles as compared 
 to a car driving on a busy city street. Due to the fact that autonomous vehicle software requires many different 
 components (instance segmentation, trajectory planning, etc.), I defined my project as a _proof of concept_ for 
-autonomous snow grooming vehicles using object detection.
+autonomous snow grooming vehicles using only object detection.
 
-The deliverables of this project are two-fold:
+The deliverables of this project were two-fold:
 1. A neural network trained to detect objects in images that a snow grooming vehicle might see in its field of view.
 2. A demo created by applying the model to snow groomer dash cam footage to draw boundary boxes around detected objects.
 
@@ -67,10 +66,9 @@ The deliverables of this project are two-fold:
 
 An object detection model is designed to return two sets of outputs for a given image:
 1. The detected instances of semantic objects of a variety of classes in the image (ex. "tree", "person", "car").
-2. A set of [Cartesian coordinates](https://mathinsight.org/cartesian_coordinates#:~:text=The%20Cartesian%20coordinates%20(also%20called,distances%20from%20the%20coordinate%20axis.){:target="_blank"} 
-   describing the boundary boxes of each detected object in units pixels. 
+2. A set of Cartesian coordinates describing the boundary boxes of each detected object in units pixels. 
 
-![Boundary Box](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pyimagesearch.com%2F2016%2F11%2F07%2Fintersection-over-union-iou-for-object-detection%2F&psig=AOvVaw2zPZ7T3K4MLD1hYEBmRJof&ust=1602196765557000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOjh05rGo-wCFQAAAAAdAAAAABAD)
+![Boundary Box](https://www.pyimagesearch.com/wp-content/uploads/2016/09/iou_stop_sign.jpg)
 
 <small>Boundary box for a stop sign in an image. (Image: [PyImageSearch](https://www.pyimagesearch.com/2016/11/07/intersection-over-union-iou-for-object-detection/))</small>
 
