@@ -181,7 +181,7 @@ segmentation, adding custom image transformations for training, and much more.)
 Demo-ing this model on video footage required the auxiliary task of drawing predicted boundary boxes and labels 
 on each frame. The choice to perform this task was a bit more obvious - [OpenCV](https://opencv.org/){:target="_blank"}. OpenCV 
 is one of the most popular libraries in the computer vision community. In addition to containing libraries 
-for image augmentation, it also has its own machine learning modeling libraries, and more. I used the 
+for image augmentation, it also has its own machine learning modeling libraries. I used the 
 Python implementation of OpenCV, [opencv-python](https://pypi.org/project/opencv-python/){:target="_blank"} to carry out the 
 boundary box drawing task.
 
@@ -250,7 +250,7 @@ detecting that something exists in an image, I might accept a precision score at
 that objects exact location in space is important, I might look more at metrics evaluated at an IOU closer to 0.95.
 
 My model achieved a mAP of `0.178` and a mAR of `0.319` for an IOU threshold range of `0.5:0.95`. For reference, 
-the original object detection model that I applied transfer learning to achieve a mAP of 0.37 on the COCO 
+the original object detection model that I applied transfer learning to achieve a mAP of `0.37` on the COCO 
 image dataset.
 
 #### Qualitative Evaluation: The Demo
